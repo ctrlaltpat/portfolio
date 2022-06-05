@@ -1,12 +1,12 @@
+import PageWrapper from '@/components/layout/page-wrapper';
 import { Box } from '@chakra-ui/react';
 import type { NextPage } from 'next';
 
 const Projects: NextPage = () => {
   return (
-    <Box>
-      <h1>Projects</h1>
-      Slider
-    </Box>
+    <PageWrapper title='Projects'>
+      <Box>Slider</Box>
+    </PageWrapper>
   );
 };
 

@@ -1,39 +1,41 @@
-import { Box, Center, Flex } from '@chakra-ui/react';
+import PageWrapper from '@/components/layout/page-wrapper';
+import { Box } from '@chakra-ui/react';
 import type { NextPage } from 'next';
 
 const Media: NextPage = () => {
   return (
     <Box>
-      <h1>Media</h1>
-      <p>Notes, snippets, links etc.</p>
-      <Box
-        sx={{
-          columnCount: [1, 2, 3, 4],
-          columnGap: 2,
-          rowGap: 2,
-          counterReset: 'item-counter',
-        }}
-      >
-        {testNotes.map((t, i) => (
-          <Box
-            key={i}
-            borderRadius='.8rem'
-            overflow={'hidden'}
-            boxSizing={'border-box'}
-            marginBottom={'.8rem'}
-            sx={{
-              WebkitBoxShadow:
-                '0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0)',
-              boxShadow:
-                '0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0)',
-              breakInside: 'avoid',
-              counterIncrement: 'item-counter',
-            }}
-          >
-            <span>i</span>
-          </Box>
-        ))}
-      </Box>
+      <PageWrapper title='Media'>
+        <p>Notes, snippets, links etc.</p>
+        <Box
+          sx={{
+            columnCount: [1, 2, 3, 4],
+            columnGap: 2,
+            rowGap: 2,
+            counterReset: 'item-counter',
+          }}
+        >
+          {testNotes.map((t, i) => (
+            <Box
+              key={i}
+              borderRadius='.8rem'
+              overflow={'hidden'}
+              boxSizing={'border-box'}
+              marginBottom={'.8rem'}
+              sx={{
+                WebkitBoxShadow:
+                  '0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0)',
+                boxShadow:
+                  '0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0)',
+                breakInside: 'avoid',
+                counterIncrement: 'item-counter',
+              }}
+            >
+              <span>i</span>
+            </Box>
+          ))}
+        </Box>
+      </PageWrapper>
     </Box>
   );
 };
