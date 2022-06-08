@@ -36,7 +36,8 @@ const NavLink: FC<NavLinkProps> = ({ link, title }) => {
         _hover={{
           filter: 'grayscale(0%) opacity(1)',
           bg: 'brand.bg1',
-          color: 'brand.text1',
+          color: 'brand.primary',
+          fontWeight: '500',
         }}
         sx={{
           '.current &': {

@@ -1,10 +1,9 @@
 import {
-  Flex,
   Box,
+  Button,
+  Flex,
   LinkBox,
   LinkOverlay,
-  Divider,
-  Button,
   Popover,
   PopoverContent,
   PopoverTrigger,
@@ -52,9 +51,15 @@ export default function Profile() {
             <PopoverTrigger>
               <Button
                 bgColor='brand.bg1'
+                border={'0px solid transparent'}
                 fontSize={24}
                 transition={'600ms'}
-                _hover={{ color: 'brand.primary', letterSpacing: '2px' }}
+                _hover={{
+                  color: 'brand.primary',
+                  letterSpacing: '2px',
+                  borderWidth: '1px',
+                  borderColor: 'brand.primary',
+                }}
               >
                 {`< CtrlAltPat />`}
               </Button>

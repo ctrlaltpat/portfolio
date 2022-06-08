@@ -1,24 +1,29 @@
-import { Box, Flex } from '@chakra-ui/react';
+import PageWrapper from '@/components/layout/pageWrapper';
+import { Box, Flex, Heading, Link } from '@chakra-ui/react';
 import Image from 'next/image';
+import NextLink from 'next/link';
 import gif from '../public/images/404.gif';
 
 export default function Custom404() {
   return (
-    <Flex
-      flexDir='column'
-      height='40rem'
-      alignItems='center'
-      pt='4rem'
-    >
-      <Box as='h1' fontSize='4rem' textAlign='center' color='gray.800'>
-        404
-      </Box>
-      <Box as='h2' fontSize='3rem' color='gray.700'>
-        Page Not Found
-      </Box>
-      <Box className='image-404'>
-        <Image src={gif} alt='404'></Image>
-      </Box>
-    </Flex>
+    <PageWrapper>
+      <Flex flexDir='column' alignItems='center' pt='1rem'>
+        <Heading as='h1' size='4xl' fontFamily={'monospace'} noOfLines={1}>
+          404
+        </Heading>
+        <Heading as='h2' size='2xl' fontFamily={'monospace'} noOfLines={1}>
+          Page Not Found
+        </Heading>
+        <Box className='image-404'>
+          <Image src={gif} alt='404'></Image>
+        </Box>
+        <br />
+        <p>Hmmm... nothing seems to be here. Sorry!</p>
+        <br />
+        <NextLink href='/' passHref>
+          <Link className='key-button'> Esc </Link>
+        </NextLink>
+      </Flex>
+    </PageWrapper>
   );
 }

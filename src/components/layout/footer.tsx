@@ -8,13 +8,11 @@ const Footer = () => {
       margin='0 auto'
       as='footer'
       p='1rem'
-      pb={['5.5rem', '2rem']}
+      pb={['5.5rem']}
       mt={'auto'}
       w='100%'
       textAlign='center'
     >
-      {/* <Divider m='1rem auto' width='80%'/>
-        <BuiltWith /> */}
       <Flex display={['flex', 'none']}>{socialLinks}</Flex>
     </Box>
   );

@@ -1,4 +1,4 @@
-import PageWrapper from '@/components/layout/page-wrapper';
+import PageWrapper from '@/components/layout/pageWrapper';
 import { Box, Center, Container, Divider, Flex, Link } from '@chakra-ui/react';
 import type { NextPage } from 'next';
 import Image from 'next/image';

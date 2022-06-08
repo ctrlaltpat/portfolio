@@ -42,39 +42,58 @@ pre code {
 .key-button {
   position: relative;
   display: inline-block;
-  margin: 0.5rem 1rem;
-  padding: 0.6em 2.1em 0.4em 0.9em;
-  background: radial-gradient(at top right, #141515, #000000);
+  padding: 0.6rem 2.1rem 0.4rem 0.9rem;
+  background: #141515;
+  background: radial-gradient(at top right, #141515, #000000) !important;
   font-family: monospace;
   font-size: 1.6rem;
   font-weight: bold;
   text-transform: uppercase;
-  color: #006ea2;
+  color: #2b6cb0 !important;
   overflow: hidden;
   border-radius: 0.8rem;
-  border: 1.5px solid #006ea2;
+  border: 1.5px solid #2b6cb0;
   box-shadow: 0px 4px 0 6px rgba(6, 6, 6, 0.71),
     -1px 6px 6px 6px rgba(0, 0, 0, 0.9);
   top: 0;
   transition: all 150ms ease-in-out;
 }
-
 .key-button:active {
   box-shadow: 0px 2px 0 6px rgba(6, 6, 6, 0.71),
     -1px 4px 6px 6px rgba(0, 0, 0, 0.9);
   top: 2px;
 }
-
+.key-button:hover {
+  text-decoration: none !important;
+}
 .key-button:focus {
+  box-shadow: 0px 2px 0 6px rgba(6, 6, 6, 0.71),
+    -1px 4px 6px 6px rgba(0, 0, 0, 0.9);
   outline: none;
+}
+.jtron .kb-container {
+  display: inline-block;
+}
+.jtron .kb-container .key-button {
+  font-size: 46px;
+}
+@media screen and (max-width: 800px) {
+  .jtron .kb-container .key-button {
+    font-size: 32px;
+  }
 }
 
 .image-404 {
+  background: #ffffff;
   max-width: 20rem;
   position: relative;
-  margin-top: 7rem;
+  margin-top: 2rem;
   overflow: hidden;
-  border: 5px solid hsl(0, 0%, 100%);
+  border: 5px solid hsl(0, 0%, 80%);
   outline: 5px solid hsl(0, 0%, 60%);
   box-shadow: 0 0 0 10px hsl(240, 4%, 30%), 0 0 0 15px hsl(240, 9%, 13%);
+}
+
+.image-404 > span {
+  top: 1rem;
 }

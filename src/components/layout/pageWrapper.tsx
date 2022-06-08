@@ -1,4 +1,4 @@
-import { Box, ContainerProps } from '@chakra-ui/react';
+import { Box, ContainerProps, Divider, Heading } from '@chakra-ui/react';
 import { motion, Variants } from 'framer-motion';
 import { ReactNode } from 'react';
 
@@ -21,7 +21,7 @@ const variants: Variants = {
 };
 
 type PageProps = {
-  title: string;
+  title?: string;
   description?: string;
   children: ReactNode;
 };
@@ -37,7 +37,20 @@ const PageWrapper = ({ title, children }: PageProps) => {
       exit='exit'
       variants={variants}
     >
-      <h1>{title}</h1>
+      {title && (
+        <>
+          <Heading
+            as='h1'
+            size='2xl'
+            fontFamily={'monospace'}
+            color={'brand.primary'}
+            noOfLines={1}
+          >
+            {title}
+          </Heading>
+          <Divider m={'10px 0'}></Divider>
+        </>
+      )}
       {children}
     </MotionContainer>
   );

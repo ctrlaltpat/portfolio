@@ -7,11 +7,13 @@ const theme = extendTheme({
       html: {
         // background: githubIoBg,
         backgroundColor: '#0c0c0f',
+        // bgGradient: 'linear(to-tr, #000000, #141515)',
       },
       body: {
+        height: '100%',
         scrollbarWidth: 'thin',
         scrollbarColor: '#2b6cb0',
-        backgroundColor: '#0c0c0f',
+        background: 'transparent',
         color: '#ececec',
       },
     },
