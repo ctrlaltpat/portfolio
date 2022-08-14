@@ -11,7 +11,7 @@ const NavBar: FC<{ links?: NavLinkProps[] }> = ({ links }) => {
       as='nav'
       role='group'
       pos={'fixed'}
-      overflow={['none','scroll']}
+      overflow={['none','hidden']}
       h={['4.5rem', '100vh']}
       w={['100%', '86px']}
       bottom={['.5rem', 'auto']}
