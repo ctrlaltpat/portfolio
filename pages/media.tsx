@@ -64,8 +64,10 @@ const Media: NextPage = ({ notes, external, snippets }: any) => { //TODO
           sx={{
             columnCount: [1, 2, 3, 4],
             columnGap: 2,
-            rowGap: 2,
             counterReset: 'item-counter',
+            '& > div': {
+              marginBottom: '10px',
+            }
           }}
         >
           {renderList(list)}
