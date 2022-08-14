@@ -1,7 +1,7 @@
 import { Box, Heading, LinkBox, LinkOverlay, Text } from '@chakra-ui/react';
 import { githubIoBg } from '../../styles/theme/bg';
 
-const BlogCard = (post) => {
+const BlogCard = (post: any) => { //TODO
   const { updatedAt } = post.sys;
   const { title, description, coverImage, slug } = post.fields;
   const borderRadius = '4px';

@@ -15,7 +15,7 @@ const Slider: FC<{ items?: TileProps[] }> = ({ items }) => {
   });
   const [sliderIndex, setSliderIndex] = useState(0);
   const [progressBarIndex, setProgressBarIndex] = useState(0);
-  const sliderTrack = useRef();
+  const sliderTrack = useRef(null);
 
   const Handle: FC<{
     dir: direction;

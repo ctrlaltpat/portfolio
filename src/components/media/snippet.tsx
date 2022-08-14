@@ -1,9 +1,10 @@
 import { Box } from '@chakra-ui/react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+// @ts-ignore
 import { nightOwl } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import Tags from './tags';
 
-const Snippet = ({ snippet }) => {
+const Snippet = ({ snippet }: any) => { //TODO
   return (
     <Box
       position={'relative'}

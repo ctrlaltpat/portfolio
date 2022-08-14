@@ -8,14 +8,14 @@ import { ContentfulApi } from 'lib/contentful';
 import type { NextPage } from 'next';
 import { useState } from 'react';
 
-const renderList = (list) =>
+const renderList = (list: any) => // TODO
   list
     .sort(
-      (a, b) =>
+      (a: any, b: any) =>
         new Date(b.sys.updatedAt).getTime() -
         new Date(a.sys.updatedAt).getTime()
     )
-    .map((item, idx) => {
+    .map((item: any, idx: string) => {
       switch (getContentType(item)) {
         case 'note':
           return <Note key={idx} note={item} />;
@@ -28,7 +28,7 @@ const renderList = (list) =>
       }
     });
 
-const Media: NextPage = ({ notes, external, snippets }) => {
+const Media: NextPage = ({ notes, external, snippets }: any) => { //TODO
   const media = [...external, ...notes, ...snippets];
 
   const [value, setValue] = useState('');

@@ -15,7 +15,7 @@ import { FC } from 'react';
 import { ContentfulApi } from '../../lib/contentful';
 // import { fetcher } from '../../lib/api';
 
-const BlogPost: FC<Post> = ({ post }) => {
+const BlogPost: FC<Post> = ({ post }: any) => { // TODO
   const router = useRouter();
 
   console.log(post);
@@ -88,7 +88,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: any) { //TODO
   // const response = await fetcher(
   //   `${process.env.NEXT_PUBLIC_STRAPI_URL}/posts?filters\[Slug\][$eq]=${params.slug}`
   // );

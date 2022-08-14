@@ -2,7 +2,7 @@ import { Box, Link, Text } from '@chakra-ui/react';
 import { FiExternalLink } from 'react-icons/fi';
 import Tags from './tags';
 
-const MediaLink = ({ media }) => {
+const MediaLink = ({ media }: any) => {
   return (
     <Box
       position={'relative'}

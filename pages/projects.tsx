@@ -4,7 +4,7 @@ import { TileProps } from '@/components/slider/tile';
 import type { NextPage } from 'next';
 import { ContentfulApi } from '../lib/contentful';
 
-const Projects: NextPage = ({ projects }) => {
+const Projects: NextPage = ({ projects }: any) => { //TODO
   const items: TileProps[] = [...projects].map(({ fields }) => ({
     title: fields.title,
     description: fields.description,

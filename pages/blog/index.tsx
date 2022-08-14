@@ -6,7 +6,7 @@ import { ContentfulApi } from '../../lib/contentful';
 // import { useState } from 'react';
 // import useSWR from 'swr';
 
-const Blog = ({ posts }) => {
+const Blog = ({ posts }: any) => { //TODO
   // const [pageIndex, setPageIndex] = useState(1);
   // const { data } = useSWR(
   //   `${process.env.NEXT_PUBLIC_STRAPI_URL}/posts?pagination[page]=${pageIndex}&pagination[pageSize]=3`,
@@ -22,7 +22,7 @@ const Blog = ({ posts }) => {
         {/* <BlogCard {...post.attributes}></BlogCard> */}
         {/* </ListItem> */}
         {/* ))} */}
-        {posts.map((post, idx) => (
+        {posts.map((post: any, idx: string) => ( //TODO
           <ListItem key={idx} borderRadius={'2px'}>
             <BlogCard {...post} />
           </ListItem>

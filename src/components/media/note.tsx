@@ -1,7 +1,7 @@
 import { randomNumberBetween } from '@/utils/index';
 import { Box, Text } from '@chakra-ui/react';
 
-const Note = ({ note }) => {
+const Note = ({ note }: any) => { //TODO
   return (
     <Box padding={'10px'}>
       <Box
