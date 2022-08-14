@@ -50,7 +50,7 @@ const About: NextPage = () => {
                   </NextLink>
                   , share knowledge and hopefully inspire others during my
                   muggle struggle. The repo can be found{' '}
-                  <Link href={'/github'} color={LINK_COLOUR}>
+                  <Link href={SOCIAL_LINKS.GITHUB} color={LINK_COLOUR}>
                     here
                   </Link>
                   .
