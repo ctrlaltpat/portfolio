@@ -109,7 +109,13 @@ const Slider: FC<{ items?: TileProps[] }> = ({ items }) => {
           progressBarItemCount={progressBarItemCount}
           current={current}
         />
-        <Box display={'flex'} gap={'.25rem'} m={'0 auto'}>
+        <Box
+          display={'flex'}
+          gap={'.25rem'}
+          m={'0 auto'}
+          position={'relative'}
+          top={'-45px'}
+        >
           {Array.from(Array(progressBarItemCount)).map((t, i) => (
             <ProgressItem key={i} isActive={i === current} />
           ))}
