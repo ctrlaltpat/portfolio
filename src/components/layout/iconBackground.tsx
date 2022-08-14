@@ -29,6 +29,7 @@ import {
   SiVisualstudiocode,
   SiWordpress,
 } from 'react-icons/si';
+import { githubIoBg } from '../../../styles/theme/bg';
 
 const simpleIcons: IconType[] = [
   SiAngularjs,
@@ -60,15 +61,15 @@ const simpleIcons: IconType[] = [
 ];
 
 const rise = keyframes`
-  from { transform: translateY(100vh) scale(0);}
-  to { transform: translateY(-10vh) scale(1); }
+  from { transform: translateY(100%) scale(0);}
+  to { transform: translateY(-100px) scale(1); }
 `;
 const rotation = keyframes`
   from { transform: rotate(0deg);}
   to { transform: rotate(359deg);}
 `;
 const riseAnim = `${rise} 15s linear infinite`;
-const rotationAnim = `${rotation} 30s linear infinite`;
+const rotationAnim = `${rotation} 20s linear infinite`;
 
 const shuffle = (arr: IconType[]) => arr.sort(() => Math.random() - 0.5);
 
@@ -76,14 +77,15 @@ function IconBackground() {
   const icons: IconType[] = shuffle(simpleIcons);
   return (
     <Flex
-      zIndex={'0'}
+      zIndex={'-1'}
       position={'absolute'}
-      height={'100vh'}
+      height={'100%'}
       width={'100%'}
       overflow={'hidden'}
       top={'0'}
       left={'0'}
       justifyContent={'space-around'}
+      background={githubIoBg}
     >
       {icons.map((icon, idx) => (
         <Box
@@ -91,7 +93,7 @@ function IconBackground() {
           as={motion.div}
           animation={riseAnim}
           display={'inline-block'}
-          opacity={'.6'}
+          opacity={'.3'}
           p={'2px'}
           m={'0 4px'}
           sx={{

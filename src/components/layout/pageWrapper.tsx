@@ -48,7 +48,7 @@ const PageWrapper = ({ title, children }: PageProps) => {
           >
             {title}
           </Heading>
-          <Divider m={'10px 0'}></Divider>
+          <Divider borderColor={'brand.primary'} m={'10px 0'}></Divider>
         </>
       )}
       {children}

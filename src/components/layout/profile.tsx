@@ -9,6 +9,7 @@ import {
   PopoverTrigger,
 } from '@chakra-ui/react';
 import Image from 'next/image';
+import { SOCIAL_LINKS } from 'src/constants';
 import avatar from '../../../public/images/ctrlaltpat-thumbs-up.png';
 import nla from '../../../public/images/never-love-anything.gif';
 
@@ -28,6 +29,7 @@ export default function Profile() {
           _hover={{
             backgroundColor: 'brand.bg1',
             borderColor: 'brand.primary',
+            boxShadow: '2px 2px 5px #2b6cb040, -1px -1px 5px #2b6cb040',
           }}
           _groupHover={{
             w: '14rem',
@@ -35,7 +37,7 @@ export default function Profile() {
           }}
         >
           <Image src={avatar} alt='ctrlaltpat memoji' />
-          <LinkOverlay href='/'></LinkOverlay>
+          <LinkOverlay href={SOCIAL_LINKS.GITHUB} isExternal></LinkOverlay>
         </LinkBox>
       </Box>
       <Box
@@ -59,6 +61,7 @@ export default function Profile() {
                   letterSpacing: '2px',
                   borderWidth: '1px',
                   borderColor: 'brand.primary',
+                  boxShadow: '2px 2px 5px #2b6cb040, -1px -1px 5px #2b6cb040',
                 }}
               >
                 {`< CtrlAltPat />`}
@@ -66,13 +69,10 @@ export default function Profile() {
             </PopoverTrigger>
             <PopoverContent w='14rem'>
               <Image src={nla} alt='Never Love Anything.'></Image>
-              {
-                // change this}
-              }
             </PopoverContent>
           </Popover>
         </Box>
-        {/* spotifiy, maybe some github stuff */}
+        {/* other stuff */}
       </Box>
       {/* <Divider /> */}
     </Flex>

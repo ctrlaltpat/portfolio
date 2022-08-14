@@ -18,7 +18,7 @@ export default function Custom404() {
           <Image src={gif} alt='404'></Image>
         </Box>
         <br />
-        <p>Hmmm... nothing seems to be here. Sorry!</p>
+        <p>Hmmm... something went wrong. Sorry!</p>
         <br />
         <NextLink href='/' passHref>
           <Link className='key-button'> Esc </Link>

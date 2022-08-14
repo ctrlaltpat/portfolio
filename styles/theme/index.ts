@@ -5,12 +5,12 @@ const theme = extendTheme({
   styles: {
     global: {
       html: {
+        height: '100%',
         // background: githubIoBg,
         backgroundColor: '#0c0c0f',
         // bgGradient: 'linear(to-tr, #000000, #141515)',
       },
       body: {
-        height: '100%',
         scrollbarWidth: 'thin',
         scrollbarColor: '#2b6cb0',
         background: 'transparent',

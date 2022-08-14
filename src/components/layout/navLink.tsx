@@ -38,6 +38,7 @@ const NavLink: FC<NavLinkProps> = ({ link, title }) => {
           bg: 'brand.bg1',
           color: 'brand.primary',
           fontWeight: '500',
+          boxShadow: '2px 2px 5px #2b6cb040, -1px -1px 5px #2b6cb040',
         }}
         sx={{
           '.current &': {
@@ -53,7 +54,7 @@ const NavLink: FC<NavLinkProps> = ({ link, title }) => {
           color='blue.500'
           _groupHover={{
             position: 'relative',
-            top: ['.8rem', 'unset'],
+            top: ['10px', 'unset'],
           }}
         />
         <NextLink href={link} passHref>

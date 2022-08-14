@@ -1,4 +1,4 @@
-import { Flex, List, ListItem } from '@chakra-ui/react';
+import { border, Flex, List, ListItem } from '@chakra-ui/react';
 import { FC } from 'react';
 import { PAGES } from '../../constants';
 import NavLink, { NavLinkProps } from './navLink';
@@ -13,14 +13,14 @@ const NavBar: FC<{ links?: NavLinkProps[] }> = ({ links }) => {
       pos={'fixed'}
       overflow={['none','scroll']}
       h={['4.5rem', '100vh']}
-      w={['100%', '90px']}
+      w={['100%', '86px']}
       bottom={['.5rem', 'auto']}
       top={['auto', 0]}
       transition={'width 600ms ease'}
       zIndex={1}
-      _hover={{ w: ['100%', '16rem'] }}
+      _hover={{ w: ['100%', '16rem'], borderRight: ['1px solid #2b6cb040']}}
       backdropFilter='auto'
-      backdropBlur='2px'
+      backdropBlur={['unset','2px']}
     >
       <List
         bgColor={['brand.bg3', 'brand.navbg']}

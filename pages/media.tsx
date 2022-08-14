@@ -1,12 +1,65 @@
 import PageWrapper from '@/components/layout/pageWrapper';
-import { Box } from '@chakra-ui/react';
+import ExternalMedia from '@/components/media/externalMedia';
+import Note from '@/components/media/note';
+import Snippet from '@/components/media/snippet';
+import { getContentType } from '@/utils/index';
+import { Box, Input } from '@chakra-ui/react';
+import { ContentfulApi } from 'lib/contentful';
 import type { NextPage } from 'next';
+import { useState } from 'react';
 
-const Media: NextPage = () => {
+const renderList = (list) =>
+  list
+    .sort(
+      (a, b) =>
+        new Date(b.sys.updatedAt).getTime() -
+        new Date(a.sys.updatedAt).getTime()
+    )
+    .map((item, idx) => {
+      switch (getContentType(item)) {
+        case 'note':
+          return <Note key={idx} note={item} />;
+        case 'media':
+          return <ExternalMedia key={idx} media={item} />;
+        case 'snippet':
+          return <Snippet key={idx} snippet={item} />;
+        default:
+          break;
+      }
+    });
+
+const Media: NextPage = ({ notes, external, snippets }) => {
+  const media = [...external, ...notes, ...snippets];
+
+  const [value, setValue] = useState('');
+  const [list, setList] = useState(media);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    const filteredList = [...media].filter(({ fields }) =>
+      JSON.stringify({ fields }).toLowerCase().includes(value.toLowerCase())
+    );
+
+    setValue(value);
+    setList(filteredList);
+  };
+
   return (
     <Box>
       <PageWrapper title='Media'>
-        <p>Notes, snippets, links etc.</p>
+        <Box marginBottom={'1rem'}>
+          <p>Just sharing some snippets, links etc.</p>
+          <Input
+            value={value}
+            onChange={handleChange}
+            placeholder='search'
+            size='sm'
+            sx={{
+              borderColor: 'brand.primary',
+              maxWidth: '200px',
+            }}
+          />
+        </Box>
         <Box
           sx={{
             columnCount: [1, 2, 3, 4],
@@ -15,126 +68,26 @@ const Media: NextPage = () => {
             counterReset: 'item-counter',
           }}
         >
-          {testNotes.map((t, i) => (
-            <Box
-              key={i}
-              borderRadius='.8rem'
-              overflow={'hidden'}
-              boxSizing={'border-box'}
-              marginBottom={'.8rem'}
-              sx={{
-                WebkitBoxShadow:
-                  '0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0)',
-                boxShadow:
-                  '0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0)',
-                breakInside: 'avoid',
-                counterIncrement: 'item-counter',
-              }}
-            >
-              <span>i</span>
-            </Box>
-          ))}
+          {renderList(list)}
         </Box>
       </PageWrapper>
     </Box>
   );
 };
 
+export async function getStaticProps() {
+  const api = new ContentfulApi();
+
+  const [external, notes, snippets] = await Promise.all([
+    api.fetchEntries('media'),
+    api.fetchEntries('note'),
+    api.fetchEntries('snippet'),
+  ]);
+
+  return {
+    props: { external, notes, snippets },
+    revalidate: 10,
+  };
+}
+
 export default Media;
-
-const testNotes = [
-  `
-  function deepIterator (target) {
-    if (typeof target === 'object') {
-      for (const key in target) {
-        deepIterator(target[key]);
-      }
-    } else {
-      console.log(target);
-    }
-  }
-  `,
-  `
-  const deepMerge = (a, b, fn) =>
-  [...new Set([...Object.keys(a), ...Object.keys(b)])].reduce(
-    (acc, key) => ({ ...acc, [key]: fn(key, a[key], b[key]) }),
-    {}
-  );`,
-  `def sort_array_asc(array)
-  array.sort
-end
-
-def sort_array_desc(array)
-array.sort do |a,b|
-  b <=> a
-end
-end
-
-def sort_array_char_count(array)
-array.sort do |a,b|
-  a.length <=> b.length
-end
-end`,
-  `def swap_elements_from_to(array, index, destination_index)
-array[index], array[destination_index] = array[destination_index], array[index]
-array
-end
-
-def swap_elements(array)
-swap_elements_from_to(array, 1,2)
-end
-
-def reverse_array(array)
-array.reverse
-end`,
-  `.center {  
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }`,
-  `LINE=1
-   while read -r CURRENT_LINE
-     do
-       echo "$LINE: $CURRENT_LINE"
-       ((LINE++))
-   done < "./new-1.txt"`,
-  `LINE=1
-   while read -r CURRENT_LINE
-     do
-       echo "$LINE: $CURRENT_LINE"
-       ((LINE++))
-   done < "./new-1.txt"`,
-  `LINE=1
-   while read -r CURRENT_LINE
-     do
-       echo "$LINE: $CURRENT_LINE"
-       ((LINE++))
-   done < "./new-1.txt"`,
-  `LINE=1
-   while read -r CURRENT_LINE
-     do
-       echo "$LINE: $CURRENT_LINE"
-       ((LINE++))
-   done < "./new-1.txt"`,
-  `LINE=1
-   while read -r CURRENT_LINE
-     do
-       echo "$LINE: $CURRENT_LINE"
-       ((LINE++))
-   done < "./new-1.txt"`,
-  `LINE=1
-   while read -r CURRENT_LINE
-     do
-       echo "$LINE: $CURRENT_LINE"
-       ((LINE++))
-   done < "./new-1.txt"`,
-  `LINE=1
-   while read -r CURRENT_LINE
-     do
-       echo "$LINE: $CURRENT_LINE"
-       ((LINE++))
-   done < "./new-1.txt"`,
-];

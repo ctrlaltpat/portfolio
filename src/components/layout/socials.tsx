@@ -6,28 +6,31 @@ import {
   LinkOverlay,
   VisuallyHidden,
 } from '@chakra-ui/react';
-import { FaDev } from 'react-icons/fa';
+import { FaCodepen } from 'react-icons/fa';
 import { GrGithub, GrLinkedin, GrTwitter } from 'react-icons/gr';
+import { SOCIAL_LINKS } from 'src/constants';
+
+const { CODEPEN, GITHUB, LINKEDIN, TWITTER } = SOCIAL_LINKS;
 
 const SOCIALS = [
   {
-    name: 'Dev',
-    link: 'https://dev.to/ctrlaltpat',
-    icon: FaDev,
+    name: 'CodePen',
+    link: CODEPEN,
+    icon: FaCodepen,
   },
   {
     name: 'Github',
-    link: 'https://github.com/ctrlaltpat',
+    link: GITHUB,
     icon: GrGithub,
   },
   {
     name: 'LinkedIn',
-    link: 'https://www.linkedin.com/in/patrickcpilgrim/',
+    link: LINKEDIN,
     icon: GrLinkedin,
   },
   {
     name: 'Twitter',
-    link: 'https://www.twitter.com/ctrlaltpat',
+    link: TWITTER,
     icon: GrTwitter,
   },
 ];
@@ -61,6 +64,7 @@ export default function Socials() {
         filter: 'grayscale(0%) opacity(1)',
         bg: 'brand.bg1',
         color: 'brand.font1',
+        boxShadow: '2px 2px 5px #2b6cb040, -1px -1px 5px #2b6cb040',
       }}
       _groupHover={{
         flexDirection: 'row',

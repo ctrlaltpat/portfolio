@@ -1,18 +1,12 @@
-import IconBackground from '@/components/layout/iconBackground';
 import PageWrapper from '@/components/layout/pageWrapper';
 import { Box, Flex, Heading } from '@chakra-ui/react';
 import type { NextPage } from 'next';
-
-// const buttons: { text: string; key: string }[] = [
-//   { text: 'ctrl', key: 'Control' },
-//   { text: 'alt', key: 'Alt' },
-//   { text: 'pat', key: 'KeyP,KeyA,KeyT' },
-// ];
+import Image from 'next/image';
+import garbage from '../public/images/garbage.gif';
 
 const Home: NextPage = () => {
   return (
     <>
-      <IconBackground />
       <PageWrapper>
         <Flex
           flexDir={['column', 'column', 'row']}
@@ -21,15 +15,10 @@ const Home: NextPage = () => {
         >
           <Box
             position={'relative'}
-            h={['150px', '150px', '200px']}
-            mr={['0', '0', '40px']}
+            h={['150px', '150px', '200px']} //, '350px']}
+            minW={['270px', '270px', '320px']} //, '500px']}
           >
-            {/* {buttons.map(({ text, key }, idx) => (
-              <Box className={`kb-container ${text}`} key={`${key}${idx}`}>
-                <Box className={`key-button`}>{text}</Box>
-              </Box>
-            ))} */}
-            <Box className={'kb-container'} ml={['0','0','0','2rem']}>
+            <Box className={'kb-container'} ml={['0', '0', '0', '2rem']}>
               <Box className={`key-button`}>Ctrl</Box>
             </Box>
             <br />
@@ -40,7 +29,7 @@ const Home: NextPage = () => {
               <Box className={`key-button`}>Pat</Box>
             </Box>
           </Box>
-          <Box mt={['0', '0', '120px']}>
+          <Box mt={['0', '0', 'auto']}>
             <Heading
               as='h1'
               color={'brand.primary'}
@@ -49,7 +38,7 @@ const Home: NextPage = () => {
               size='2xl'
               noOfLines={3}
             >
-              Software Engineer
+              WEB DEVELOPER
             </Heading>
             <Heading
               as='h2'
@@ -58,12 +47,22 @@ const Home: NextPage = () => {
               textShadow={'-2px 2px 1px rgba(0,0,0,.6)'}
               size='xs'
             >
-              Web - Mobile - Desktop - Games
+              HTML | CSS | JS | TS | React | Responsive Web Development
             </Heading>
           </Box>
         </Flex>
-        <Box>
-          Featured Projects
+        <br />
+        <Box
+          h={'600px'}
+          pos={'relative'}
+          p={'10px'}
+          backgroundColor={'brand.primary'}
+        >
+          {/* <p>Featured Projects.......</p> */}
+          <p>a messy WIP... like me</p>
+          <Box pos={'absolute'} bottom={0} right={0}>
+            <Image src={garbage} alt='no featured projects...'></Image>
+          </Box>
         </Box>
       </PageWrapper>
     </>
