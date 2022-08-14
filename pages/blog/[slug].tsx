@@ -54,8 +54,8 @@ const BlogPost: FC<Post> = ({ post }: any) => { // TODO
               }}
             />
           </Box>
-          <Box m='1rem auto'>
-            <Box p={'10px'}>{documentToReactComponents(content)}</Box>
+          <Box m='1rem auto' maxWidth={'990px'}>
+            <Text p={'10px'}>{documentToReactComponents(content)}</Text>
           </Box>
         </Flex>
       </PageWrapper>
