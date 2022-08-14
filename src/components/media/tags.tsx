@@ -6,7 +6,7 @@ const Tags = ({ tags }: { tags: string[] }) => {
       position={'absolute'}
       bottom={'.2rem'}
       left={'.4rem'}
-      overflowX={'scroll'}
+      overflowX={'auto'}
     >
       {tags.map((t, i) => (
         <Box

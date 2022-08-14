@@ -89,7 +89,7 @@ const Tile: FC<TileProps> = ({
 
         <ChakraImage borderRadius='.0rem' src={imgUrl} alt={imgAlt} />
       </Box>
-      <Box maxHeight={'110px'} overflow={'scroll'}>
+      <Box maxHeight={'110px'} overflowY={'auto'}>
         <Flex direction={'column'}>
           <Box mt={'auto'} padding={'10px'}>
             <Text

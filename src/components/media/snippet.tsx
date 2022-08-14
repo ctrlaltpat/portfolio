@@ -14,7 +14,7 @@ const Snippet = ({ snippet }: any) => { //TODO
       sx={{
         breakInside: 'avoid',
         '& code': {
-          overflow: 'scroll',
+          overflowX: 'auto',
           padding: '.4rem!important',
         },
         '& pre': {
