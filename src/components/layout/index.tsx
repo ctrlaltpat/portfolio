@@ -15,7 +15,7 @@ const Layout: FC<{ children: ReactNode }> = ({ children }) => {
       backgroundPosition={'1900px 100%'}
     >
       <Header />
-      {/* <IconBackground /> */}
+      <IconBackground />
       <Box
         as='main'
         p={['1rem', '1rem 1rem 1rem 110px']}
