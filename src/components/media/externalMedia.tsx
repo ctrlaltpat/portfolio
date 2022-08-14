@@ -6,6 +6,7 @@ const MediaLink = ({ media }: any) => {
   return (
     <Box
       position={'relative'}
+      role={'group'}
       backgroundImage={`url(${media.fields.thumbnail})`}
       backgroundRepeat={'no-repeat'}
       backgroundPosition={'center'}
@@ -21,26 +22,32 @@ const MediaLink = ({ media }: any) => {
           padding: '4px',
           top: '10px',
           right: '10px',
+          zIndex: '5',
           transition: 'all 300ms ease',
           '& a': {
             textDecoration: 'none!important',
           },
         }}
-        _hover={{ transform: 'scale(1.3)' }}
+        _groupHover={{ fontSize: '30px' }}
       >
         <Link href={media.fields.url} isExternal>
           <FiExternalLink />
         </Link>
       </Box>
       <Box
-        pt={'8rem'}
-        px={'1rem'}
-        pb={'2rem'}
+        height={'200px'}
+        padding={'20px'}
         borderRadius={'8px'}
         textShadow={'#000000a6 2px 2px 2px'}
         backgroundColor={'brand.bg3'}
       >
-        <Text fontSize={'1.4rem'} fontWeight={500}>
+        <Text
+          fontSize={'1.4rem'}
+          fontWeight={500}
+          opacity={1}
+          transition={'opacity 450ms ease'}
+          _groupHover={{ opacity: 0.1 }}
+        >
           {media.fields.title}
         </Text>
       </Box>

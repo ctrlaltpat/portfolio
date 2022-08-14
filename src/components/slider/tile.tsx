@@ -31,12 +31,12 @@ const Tile: FC<TileProps> = ({
       h={'400px'}
       position={'relative'}
       objectFit={'contain'}
-      border='1px solid #2b6cb0'
+      border='1px solid #1e49779d'
       borderRadius={'8px'}
       backgroundColor={'brand.bg1'}
       transition={'transform 450ms ease-in-out'}
       sx={{
-        flex: '0 0 calc(100% / var(--items-per-screen))',
+        flex: '0 0 calc(98% / var(--items-per-screen))',
         'max-width': 'calc(100% / var(--items-per-screen))',
         'aspect-ratio': '16 / 9',
         padding: 'var(--img-gap)',
@@ -60,6 +60,7 @@ const Tile: FC<TileProps> = ({
             padding: '4px',
             transition: 'all .75s ease',
             right: '-80px',
+            textShadow: '-2px 2px 1px rgba(0,0,0,.6)'
           },
           '& a': {
             textDecoration: 'none!important',
@@ -101,7 +102,7 @@ const Tile: FC<TileProps> = ({
             >
               {title}
             </Text>
-            <Text color={'gray.500'}>{description}</Text>
+            <Text color={'gray.500'} fontSize={'xs'}>{description}</Text>
           </Box>
         </Flex>
       </Box>

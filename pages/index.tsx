@@ -52,14 +52,16 @@ const Home: NextPage = () => {
           </Box>
         </Flex>
         <br />
-        <Box
-          h={'600px'}
-          pos={'relative'}
-          p={'10px'}
-          backgroundColor={'brand.primary'}
-        >
+        <Box h={'600px'} pos={'relative'} p={'40px 10px'}>
           {/* <p>Featured Projects.......</p> */}
-          <p>a messy WIP... like me</p>
+          <Heading
+            as='h3'
+            color={'brand.primary'}
+            fontFamily={'monospace'}
+            textShadow={'-2px 2px 1px rgba(0,0,0,.6)'}
+          >
+            Under Construction...
+          </Heading>
           <Box pos={'absolute'} bottom={0} right={0}>
             <Image src={garbage} alt='no featured projects...'></Image>
           </Box>
