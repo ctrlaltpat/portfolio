@@ -8,7 +8,7 @@ const Note = ({ note }: any) => { //TODO
         position={'relative'}
         minHeight={'250px'}
         backgroundColor={'brand.primary'}
-        padding={'10px'}
+        padding={'20px'}
         transform={`rotate(${randomNumberBetween(3, -3)}deg)`}
         sx={{ breakInside: 'avoid' }}
       >
