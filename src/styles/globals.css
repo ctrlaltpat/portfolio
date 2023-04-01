@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .gradient-text {
+    @apply font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-blue-700;
+  }
+}
