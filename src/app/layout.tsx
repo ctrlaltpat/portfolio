@@ -18,7 +18,7 @@ const RootLayout: FC<LayoutProps> = ({ children }) => {
         <Providers>
           {/* @ts-expect-error Server Component */}
           <Navbar/>
-          <Toaster position='top-right' />
+          <Toaster position='bottom-right' />
 
           <main>{children}</main>
         </Providers>

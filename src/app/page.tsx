@@ -1,3 +1,4 @@
+import TechExp from '@/components/TechExp';
 import LargeHeading from '@/components/ui/LargeHeading';
 import Paragraph from '@/components/ui/Paragraph';
 
@@ -12,16 +13,12 @@ export default function Home() {
   return (
     <div className='relative flex items-center justify-center overflow-x-hidden'>
       {/* h-screen */}
-      <div className='container pt-32 max-w-7xl w-full mx-auto h-full'>
-        <div className='h-full gap-6 flex flex-col justify-start lg:justify-center items-center lg:items-start'>
-          <LargeHeading size='sm' className='three-d tracking-normal'>
-            Hello, I&apos;m
-          </LargeHeading>
-
-          <h1 className='text-5xl gradient-text'>
-            Patrick.
-          </h1>
-
+      <div className='container pt-48 max-w-7xl w-full mx-auto h-full'>
+        <div className='h-full gap-2 flex flex-col justify-start lg:justify-center items-center lg:items-start'>
+          <h1 className='gradient-text'>Hello, I&apos;m Patrick</h1>
+          <Paragraph className='pt-4'>
+            <TechExp />
+          </Paragraph>
           <Paragraph className='max-w-xl lg:text-left'>
             {/* &#128376;  */}
             &#128187; Web Developer

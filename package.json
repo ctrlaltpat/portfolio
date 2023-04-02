@@ -29,7 +29,6 @@
     "eslint-config-next": "13.2.4",
     "framer-motion": "^10.10.0",
     "lodash": "^4.17.21",
-    "lucide-react": "^0.129.0",
     "nanoid": "^4.0.2",
     "next": "13.2.4",
     "next-auth": "^4.20.1",
@@ -41,8 +40,8 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.43.9",
     "react-hot-toast": "^2.4.0",
+    "react-icons": "^4.8.0",
     "sharp": "^0.32.0",
-    "simplebar-react": "^3.2.3",
     "tailwind-merge": "^1.11.0",
     "zod": "^3.21.4"
   },

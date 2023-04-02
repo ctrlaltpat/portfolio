@@ -3,13 +3,12 @@ import React from 'react';
 import Link from 'next/link';
 import { ThemeToggle } from './ThemeToggle';
 import { buttonVariants } from '@/ui/Button/Button';
-import Image from 'next/image';
-import pat from '../../public/images/pat.png';
 // import SignInButton from '@/ui/Button/SignInButton';
 // import SignOutButton from '@/ui/Button/SignOutButton';
+// import { authOptions } from '@/lib/auth';
 
 const Navbar = async () => {
-  // const session = await getServerSession();
+  // const session = await getServerSession(authOptions);
 
   return (
     <div className='fixed backdrop-blur-sm bg-white/75 dark:bg-slate-900/75 z-50 top-0 left-0 right-0 h-20 shadow-sm flex items-center justify-between'>
