@@ -7,7 +7,7 @@ import { buttonVariants } from '@/ui/Button/Button';
 // import SignOutButton from '@/ui/Button/SignOutButton';
 // import { authOptions } from '@/lib/auth';
 
-const Navbar = async () => {
+const Navbar = () => {
   // const session = await getServerSession(authOptions);
 
   return (

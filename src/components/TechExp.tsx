@@ -32,7 +32,7 @@ const TechIcon: FC<TechIconProps> = ({ children, text }) => {
 const TechExp: FC = () => {
   return (
     <>
-      <div className='relative w-72 md:w-auto text-left'>
+      <div className='relative w-72 pt-4 md:w-auto text-left'>
         <TechIcon text={Exp.Paid}>
           <ExpIcons.Angularjs />
         </TechIcon>
