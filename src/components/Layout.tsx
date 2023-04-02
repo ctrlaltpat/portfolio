@@ -18,7 +18,7 @@ const Layout = ({ children }: Props) => {
       <Meta />
       <div
         className={cn(
-          'min-h-screen bg-slate-50 dark:bg-slate-900 antialiased flex flex-col h-5/6',
+          'min-h-screen bg-slate-50 dark:bg-slate-900 antialiased flex flex-col h-5/6 pt-32 max-w-7xl w-full mx-auto container',
           inter.className
         )}
       >

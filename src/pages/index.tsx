@@ -1,13 +1,19 @@
 import Layout from '@/components/Layout';
 import TechExp from '@/components/TechExp';
-import Paragraph from '@/components/ui/Paragraph';
+import Paragraph from '@/ui/Paragraph';
+import { getAllPosts } from '@/lib/api';
+import PostPreview from '@/components/PostPreview';
 
-export default function Home() {
+type Props = {
+  allPosts: PostType[];
+};
+
+export default function Home({ allPosts }: Props) {
   return (
     <Layout>
       <div className='relative flex items-center justify-center overflow-x-hidden'>
         {/* h-screen */}
-        <div className='container pt-48 max-w-7xl w-full mx-auto'>
+        <div className='pt-4 md:pt-20'>
           <div className='h-full gap-2 flex flex-col justify-start lg:justify-center items-center lg:items-start'>
             <h1 className='gradient-text'>Hello, I&apos;m Patrick</h1>
             <TechExp />
@@ -21,9 +27,30 @@ export default function Home() {
               <br />
               &#128764; Skater
             </Paragraph>
+            <div className='my-2 grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-4'>
+              {allPosts.length > 0 &&
+                allPosts
+                  .slice(0, 2)
+                  .map((post) => <PostPreview key={post.slug} {...post} />)}
+            </div>
           </div>
         </div>
       </div>
     </Layout>
   );
 }
+
+export const getStaticProps = async () => {
+  const allPosts = getAllPosts([
+    'title',
+    'date',
+    'slug',
+    'author',
+    'coverImage',
+    'excerpt',
+  ]);
+
+  return {
+    props: { allPosts },
+  };
+};

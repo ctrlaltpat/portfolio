@@ -88,6 +88,10 @@ code {
   -1px 6px 6px 6px #bcbcbce6;
 }
 
+.dark .blog-post {
+  color: #ffffff;
+}
+
 .debug-me {
   border: 2px dotted tomato;
 }

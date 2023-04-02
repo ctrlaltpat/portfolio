@@ -31,7 +31,7 @@ const Navbar = () => {
             About
           </Link>
           <Link
-            href='/blog'
+            href='/posts'
             className={buttonVariants({ variant: 'ghost' })}>
             Blog
           </Link>

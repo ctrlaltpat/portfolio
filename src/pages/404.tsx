@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import LargeHeading from '@/components/ui/LargeHeading';
 import Paragraph from '@/components/ui/Paragraph';
-import gif from '../../public/images/404.gif';
+import gif from '../../public/assets/gifs/404.gif';
 
 import type { Metadata } from 'next';
 import Layout from '@/components/Layout';
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 const PageNotFound: FC = () => {
   return (
     <Layout>
-      <section className='container pt-32 pb-20 max-w-7xl mx-auto text-center flex flex-col gap-6 items-center'>
+      <section className='pb-20 text-center flex flex-col gap-6 items-center'>
         <LargeHeading size='lg'>404</LargeHeading>
         <Paragraph>Page Not Found</Paragraph>
         <div className='img-404'>

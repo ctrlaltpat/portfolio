@@ -28,6 +28,7 @@
     "eslint": "8.37.0",
     "eslint-config-next": "13.2.4",
     "framer-motion": "^10.10.0",
+    "gray-matter": "^4.0.3",
     "lodash": "^4.17.21",
     "nanoid": "^4.0.2",
     "next": "13.2.4",
@@ -41,6 +42,8 @@
     "react-hook-form": "^7.43.9",
     "react-hot-toast": "^2.4.0",
     "react-icons": "^4.8.0",
+    "remark": "^14.0.2",
+    "remark-html": "^15.0.2",
     "sharp": "^0.32.0",
     "tailwind-merge": "^1.11.0",
     "zod": "^3.21.4"
