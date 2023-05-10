@@ -18,7 +18,7 @@ const BackButton: FC<BackButtonProps> = ({ className, ...props }) => {
       className={cn('w-fit', className)}
     >
       <>
-        <Icons.ChevronLeft className='mr-2 h-4 w-4' />
+        <Icons.Left className='mr-2 h-4 w-4' />
         Back
       </>
     </Button>

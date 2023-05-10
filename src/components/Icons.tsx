@@ -27,9 +27,11 @@ import {
   SiVisualstudiocode,
   SiWordpress,
 } from 'react-icons/si';
-import { RxLaptop, RxMoon, RxSun } from 'react-icons/rx';
+import { RxChevronLeft, RxChevronRight, RxLaptop, RxMoon, RxSun } from 'react-icons/rx';
 
 export const Icons = {
+  Left: RxChevronLeft,
+  Right: RxChevronRight,
   Laptop: RxLaptop,
   Moon: RxMoon,
   Sun: RxSun,
