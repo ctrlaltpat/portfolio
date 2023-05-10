@@ -11,13 +11,16 @@ type Props = {
 export default function Home({ allPosts }: Props) {
   return (
     <Layout>
-      <div className='relative flex items-center justify-center overflow-x-hidden'>
+      <div className='relative flex items-center justify-center md:justify-normal overflow-x-hidden'>
         {/* h-screen */}
         <div className='pt-4 md:pt-20'>
-          <div className='h-full gap-2 flex flex-col justify-start lg:justify-center items-center lg:items-start'>
+          <div
+            className='w-full h-full gap-2 flex flex-col 
+          justify-center'
+          >
             <h1 className='gradient-text'>Hello, I&apos;m Patrick</h1>
             <TechExp />
-            <Paragraph className='max-w-xl lg:text-left'>
+            <Paragraph className='text-left'>
               {/* &#128376;  */}
               &#128187; Web Developer
               <br />
@@ -27,7 +30,7 @@ export default function Home({ allPosts }: Props) {
               <br />
               &#128764; Skater
             </Paragraph>
-            <div className='my-2 grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-4'>
+            <div className='my-2 grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-4'>
               {allPosts.length > 0 &&
                 allPosts
                   .slice(0, 2)

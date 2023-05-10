@@ -2,7 +2,9 @@ import LargeHeading from '@/components/ui/LargeHeading';
 import Paragraph from '@/components/ui/Paragraph';
 import { FC } from 'react';
 import NextLink from 'next/link';
+import Image from 'next/image';
 import Layout from '@/components/Layout';
+import gif from '../../public/assets/gifs/b99-noticed.gif';
 // import Code from '@/ui/Code';
 // import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/ui/Tabs';
 
@@ -20,6 +22,7 @@ const page: FC = () => {
     <Layout>
       <div className='flex flex-col items-center gap-6'>
         <LargeHeading size='sm'>About</LargeHeading>
+        <Image src={gif} alt='noticed'></Image>
         <Paragraph>Hey, thanks for visiting! </Paragraph>
         <Paragraph>
           My name is Patrick, and I&apos;m a web developer based in London, UK.
