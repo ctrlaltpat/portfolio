@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* --background: #ffffff;
+  --foreground: #171717; */
+  --background: #0c0c0c;
+  --foreground: #ededed;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0c0c0c;
+    --foreground: #ededed;
+  }
+} */
+
+/* *,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} */
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+.ctrlaltwrapper {
+}
+.sidebar {
+}
+main {
+}
+.navigation {
+}
+
+
+a {
+  color: #3b83f6;
+}
+a:hover {
+  color: #055ab5;
+}
+
+.footer {
+}
+
+
+
+
+.debug-me {
+  border: 2px dotted tomato;
+}
+/* CtrlAltPat */
+.ctrlaltpat {
+  display: block;
+  position: relative;
+  height: 140px;
+  width: 200px;
+  padding: 0;
+  margin: 0;
+}
+
+.key-btn {
+  position: relative;
+  display: inline-block;
+  padding: 0.4rem 1.2rem 0rem 0.6rem;
+  margin: 6px 12px 14px;
+  background: #141515;
+  background: radial-gradient(at top right, #141515, #000000) !important;
+  font-family: monospace;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #3b83f6 !important;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1.5px solid #3b83f6;
+  box-shadow: 0px 4px 0 6px #060606,
+    -1px 6px 6px 6px #000000e6;
+  top: 0;
+}
+.ctrlaltpat .key-btn:not(:nth-of-type(1)) {
+  position: absolute;
+}
+.ctrlaltpat .key-btn:nth-of-type(1) {
+  left: 24px;
+}
+.ctrlaltpat .key-btn:nth-of-type(2) {
+  top: 64px;
+  left: 0px;
+}
+.ctrlaltpat .key-btn:nth-of-type(3) {
+  top: 64px;
+  left: 94px;
+}
