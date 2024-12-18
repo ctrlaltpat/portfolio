@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { KeyboardKeys } from './keyboard-keys';
 import {
   HiOutlineHome,
   HiOutlineUser,
@@ -19,44 +18,32 @@ const links = [
   { href: '/media', label: 'Media', icon: HiOutlinePhotograph },
 ];
 
-export default function Sidebar() {
+export function MobileNav() {
   const pathname = usePathname();
 
   return (
-    <aside className="w-64 h-screen sticky top-0 p-4 bg-black">
-      <div className="flex flex-col h-full">
-        <div className="mb-8">
-          <Link href="/" className="block mb-4">
-            <KeyboardKeys />
-          </Link>
-        </div>
-
-        <nav className="space-y-2">
+    <nav className="fixed bottom-0 left-0 right-0 z-50 md:hidden">
+      <div className="glass-panel mx-4 mb-4 rounded-2xl">
+        <div className="flex justify-around p-2">
           {links.map(({ href, label, icon: Icon }) => {
             const isActive = pathname === href;
             return (
               <Link
                 key={href}
                 href={href}
-                className={`flex items-center gap-3 px-4 py-2 rounded-lg transition-colors ${
+                className={`flex flex-col items-center p-2 rounded-xl transition-colors ${
                   isActive
-                    ? 'bg-primary text-white'
-                    : 'text-white/60 hover:text-white hover:bg-white/5'
+                    ? 'text-[#0066ff]'
+                    : 'text-white/60 hover:text-white'
                 }`}
               >
-                <Icon className="w-5 h-5" />
-                <span>{label}</span>
+                <Icon className="w-6 h-6" />
+                <span className="text-xs mt-1">{label}</span>
               </Link>
             );
           })}
-        </nav>
-
-        <div className="mt-auto pt-8">
-          <div className="text-sm text-white/40">
-            <p> 2023 Patrick Tsoi</p>
-          </div>
         </div>
       </div>
-    </aside>
+    </nav>
   );
 }

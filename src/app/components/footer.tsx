@@ -1,42 +1,34 @@
-
 import { FaCodepen } from 'react-icons/fa';
-import { GrGithub, GrLinkedin, GrTwitter } from 'react-icons/gr';
+import { GrGithub, GrLinkedin } from 'react-icons/gr';
+
+const socialLinks = [
+  { href: 'https://github.com/ctrlaltpat', icon: GrGithub, label: 'GitHub' },
+  { href: 'https://www.linkedin.com/in/patrickcpilgrim/', icon: GrLinkedin, label: 'LinkedIn' },
+  { href: 'https://codepen.io/ctrlaltpat', icon: FaCodepen, label: 'CodePen' },
+] as const;
 
 const Footer = () => {
-  const linkClass =
-    'text-slate-400 inline-block my-2 mr-4 text-xl hover:text-blue-400 ease-in-out duration-150';
   return (
-    <footer className='footer mt-auto'>
-        CtrlAltPat © {new Date().getFullYear()}
-        <br />
-        <a
-          className={linkClass}
-          href='https://github.com/ctrlaltpat'
-          target='_blank'
-        >
-          <GrGithub />
-        </a>
-        <a
-          className={linkClass}
-          href='https://www.linkedin.com/in/patrickcpilgrim/'
-          target='_blank'
-        >
-          <GrLinkedin />
-        </a>
-        <a
-          className={linkClass}
-          href='https://www.twitter.com/ctrlaltpat'
-          target='_blank'
-        >
-          <GrTwitter />
-        </a>
-        <a
-          className={linkClass}
-          href='https://codepen.io/ctrlaltpat'
-          target='_blank'
-        >
-          <FaCodepen />
-        </a>
+    <footer className="bg-black mt-auto mx-4 mb-2 rounded-lg">
+      <div className="container mx-auto px-4 py-3 flex flex-col sm:flex-row justify-between items-center">
+        <p className="text-sm text-foreground/80">
+          CtrlAltPat &copy; {new Date().getFullYear()}
+        </p>
+        <div className="flex items-center space-x-4 mt-2 sm:mt-0">
+          {socialLinks.map(({ href, icon: Icon, label }) => (
+            <a
+              key={href}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground/60 hover:text-foreground transition-colors duration-200"
+              aria-label={label}
+            >
+              <Icon className="w-5 h-5" />
+            </a>
+          ))}
+        </div>
+      </div>
     </footer>
   );
 };

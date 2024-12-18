@@ -1,45 +1,50 @@
 import type { Metadata } from 'next';
-import localFont from 'next/font/local';
-import Nav from './components/navigation';
+import { ubuntuMono, josefinSans } from './fonts';
+import Sidebar from './components/sidebar';
+import { MobileNav } from './components/mobile-nav';
 import Footer from './components/footer';
 import './styles/globals.css';
-import Sidebar from './components/sidebar';
-import Link from 'next/link';
-
-const mainFont = localFont({
-  src: './fonts/JosefinSans-VariableFont_wght.ttf',
-});
+import { ThemeProvider } from './components/theme-provider';
+import { cn } from '../lib/utils';
 
 export const metadata: Metadata = {
-  title: 'CtrlAltPat',
-  description: 'Portfolio?',
+  title: 'Pat Lim',
+  description: 'Pat Lim - Software Engineer & Creative Developer',
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang='en'>
-      <head>
-        <meta charSet='utf-8' />
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
-      </head>
-      <body className={`${mainFont.className} min-h-screen p-2`}>
-        <header className=''>
-          <Link className='ctrlaltpat' href='/'>
-            <div className='key-btn'>Ctrl</div>
-            <div className='key-btn'>Alt</div>
-            <div className='key-btn'>Pat</div>
-          </Link>
-          <Nav />
-        </header>
-        <div className='debug-me my-4'>
-          <main className='border-blue-700 border-2 my-10 mx-2'>{children}</main>
-          <Sidebar />
-        </div>
-        <Footer />
+    <html lang="en" suppressHydrationWarning>
+      <body className={cn(
+        ubuntuMono.variable,
+        josefinSans.variable,
+        'font-mono bg-background text-foreground'
+      )}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="flex min-h-screen">
+            <div className="hidden md:block">
+              <Sidebar />
+            </div>
+            <div className="flex-1">
+              <div className="md:hidden">
+                <MobileNav />
+              </div>
+              <main className="container mx-auto px-4 py-8 md:px-8">
+                {children}
+              </main>
+              <Footer />
+            </div>
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -3,99 +3,129 @@
 @tailwind utilities;
 
 :root {
-  /* --background: #ffffff;
-  --foreground: #171717; */
   --background: #0c0c0c;
   --foreground: #ededed;
+  --primary: #3b83f6;
+  --primary-hover: #2563eb;
+  --accent: #8b5cf6;
+  --glass-opacity: 0.1;
+  --glass-border-opacity: 0.2;
+  --blur: 10px;
+  --font-mono: 'Ubuntu Mono', monospace;
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0c0c0c;
-    --foreground: #ededed;
+@layer base {
+  html {
+    font-family: 'Ubuntu Mono', monospace;
   }
-} */
+  
+  body {
+    @apply text-foreground bg-background min-h-screen antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
 
-/* *,
-::after,
-::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-} */
+  /* Mobile-first tap targets */
+  button, a {
+    @apply min-h-[44px] min-w-[44px];
+  }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-.ctrlaltwrapper {
-}
-.sidebar {
-}
-main {
-}
-.navigation {
+  .ctrlaltfilter button {
+    @apply min-h-[22px] min-w-[44px];
+  }
 }
 
+@layer components {
+  .glass-panel {
+    @apply bg-black/50 backdrop-blur-sm border border-white/10;
+  }
+  
+  .glass-button {
+    @apply glass-panel px-4 py-2 
+           hover:bg-opacity-15 active:bg-opacity-20
+           transition-colors duration-200
+           flex items-center justify-center;
+  }
 
-a {
-  color: #3b83f6;
-}
-a:hover {
-  color: #055ab5;
-}
+  .key-btn {
+    @apply relative px-4 py-2 md:px-6 md:py-3 
+           text-base md:text-lg font-medium 
+           inline-flex items-center justify-center
+           mx-1 select-none cursor-pointer
+           rounded-xl border border-opacity-15
+           hover:border-primary transition-all duration-200;
+  }
 
-.footer {
-}
+  .nav-link {
+    @apply glass-button text-sm font-medium
+           relative overflow-hidden
+           hover:text-primary transition-colors;
+  }
 
+  .hero-section {
+    @apply relative min-h-[50vh] md:min-h-[60vh] 
+           w-full flex items-center justify-center
+           px-4 md:px-6;
+  }
 
+  .keyboard-logo {
+    @apply relative;
+  }
 
+  .keyboard-key {
+    transform-style: preserve-3d;
+    transform: perspective(1000px) rotateX(10deg);
+  }
 
-.debug-me {
-  border: 2px dotted tomato;
-}
-/* CtrlAltPat */
-.ctrlaltpat {
-  display: block;
-  position: relative;
-  height: 140px;
-  width: 200px;
-  padding: 0;
-  margin: 0;
-}
+  .ctrlaltpat {
+    @apply flex items-center justify-center gap-2 p-2 md:p-4
+         hover:scale-105 transition-transform duration-200;
+  }
 
-.key-btn {
-  position: relative;
-  display: inline-block;
-  padding: 0.4rem 1.2rem 0rem 0.6rem;
-  margin: 6px 12px 14px;
-  background: #141515;
-  background: radial-gradient(at top right, #141515, #000000) !important;
-  font-family: monospace;
-  font-size: 1.6rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #3b83f6 !important;
-  cursor: pointer;
-  overflow: hidden;
-  border-radius: 10px;
-  border: 1.5px solid #3b83f6;
-  box-shadow: 0px 4px 0 6px #060606,
-    -1px 6px 6px 6px #000000e6;
-  top: 0;
-}
-.ctrlaltpat .key-btn:not(:nth-of-type(1)) {
-  position: absolute;
-}
-.ctrlaltpat .key-btn:nth-of-type(1) {
-  left: 24px;
-}
-.ctrlaltpat .key-btn:nth-of-type(2) {
-  top: 64px;
-  left: 0px;
-}
-.ctrlaltpat .key-btn:nth-of-type(3) {
-  top: 64px;
-  left: 94px;
+  .navigation {
+    @apply fixed top-0 right-0 md:top-4 md:right-4 
+         flex items-center gap-1 md:gap-2
+         p-2 md:p-0;
+  }
+
+  .sidebar {
+    @apply glass-panel p-4 w-full md:w-64
+         mb-4 md:mb-0 md:mr-4;
+  }
+
+  .footer {
+    @apply glass-panel mt-auto mx-2 mb-16 md:mb-2 md:mx-4
+         p-3 md:p-4 text-center;
+  }
+
+  .ctrlaltwrapper {
+  }
+  main {
+  }
+  a {
+    color: var(--primary);
+  }
+  a:hover {
+    color: var(--primary-hover);
+  }
+
+  .mobile-tab-nav {
+    @apply fixed bottom-0 left-0 right-0 
+         bg-opacity-80 backdrop-blur-lg
+         border-t border-opacity-10 z-50
+         md:hidden;
+  }
+
+  .mobile-tab-item {
+    @apply flex flex-col items-center justify-center
+         p-2 text-opacity-60 text-white
+         hover:text-primary transition-colors;
+  }
+
+  .mobile-tab-item.active {
+    @apply text-primary;
+  }
+
+  .debug-me {
+    @apply border-2 border-dotted border-red-500;
+  }
 }
