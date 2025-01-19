@@ -199,6 +199,12 @@ a.secondary {
   }
 }
 
+@media (max-width: 400px) {
+  .bgvideo {
+    display: none;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   /* .logo {
     filter: invert();
