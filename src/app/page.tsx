@@ -51,7 +51,7 @@ export default function Home() {
       <main className={cx(styles.main, styles.wrapper)}>
         <h2>Experience</h2>
         {
-          experience.map(({title, company, tenure, description, achievements}) => <div>
+          experience.map(({title, company, tenure, description, achievements}) => <div key={company.substring(0,3)}>
             <h3>{title} - {company} ({tenure})</h3>
             <h4>{description}</h4>
             <ul>
