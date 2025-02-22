@@ -9,7 +9,8 @@ const nextConfig: NextConfig = {
         hostname: 'avatars.githubusercontent.com',
       },
     ],
-  }
+  },
+  sassOptions: {}
 };
 
 export default nextConfig;
