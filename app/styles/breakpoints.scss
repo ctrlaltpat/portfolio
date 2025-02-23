@@ -1,0 +1,33 @@
+
+$ss-xs : 600px;
+$ss-sm : 768px;
+$ss-md : 992px;
+$ss-lg : 1200px;
+$ss-xl : 1400px;
+
+
+@mixin xs {
+  @media (max-width: $ss-xs) {
+    @content;
+  }
+}
+@mixin sm {
+  @media (max-width: $ss-sm) {
+    @content;
+  }
+}
+@mixin md {
+  @media (max-width: $ss-md) {
+    @content;
+  }
+}
+@mixin lg {
+  @media (max-width: $ss-lg) {
+    @content;
+  }
+}
+@mixin xl {
+  @media (max-width: $ss-xl) {
+    @content;
+  }
+}

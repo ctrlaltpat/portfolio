@@ -1,11 +1,4 @@
-/* .bgvideo {
-  position: fixed;
-  top: 0;
-  right: 0;
-  height: 100%;
-  z-index: -1;
-  opacity: 0.6;
-} */
+@import "./breakpoints";
 
 .container {
   padding-inline: 2em;
@@ -69,13 +62,19 @@ nav {
   }
 }
 
-@media (max-width: 768px) {
-  .footer {
-    flex-wrap: wrap;
+// @include xl {
+// }
+// @include lg {
+// }
+// @include md {
+// }
+@include sm {
+  .container {
+    padding-inline: 1em;
   }
 }
 
-@media (max-width: 600px) {
+@include xs {
   header {
     justify-content: space-around;
   }
@@ -100,5 +99,8 @@ nav {
         display: none;
       }
     }
+  }
+  footer {
+    margin-bottom: 50px;
   }
 }

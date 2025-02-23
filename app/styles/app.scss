@@ -1,0 +1,68 @@
+@import "./breakpoints";
+
+.media-items {
+  display: grid;
+  column-gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+  //   grid-template-rows: masonry;
+
+  figure {
+    padding: 6px;
+    margin-bottom: 10px;
+  }
+}
+
+.project-list {
+  display: grid;
+  column-gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+
+  figure {
+    display: inline-block;
+    height: 400px;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px;
+    padding: 8px 4px;
+    justify-self: center;
+    border-radius: 20px;
+    border: 5px solid var(--clr-main);
+    box-shadow: 0 70px 40px -20px rgba(0, 0, 0, 0.2);
+
+    transform: perspective(750px) translate3d(0px, 0px, -250px) rotateX(27deg)
+      scale(0.9, 0.9);
+    transition: 0.4s ease-in-out transform;
+
+    &:hover {
+      transform: translate3d(0px, 0px, -250px);
+      cursor: pointer;
+    }
+  }
+}
+
+.debug {
+  border: 2px solid red;
+}
+
+@include lg {
+  .media{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@include md {
+  .media,
+  .project-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@include sm {
+  .media,
+  .project-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .project-list figure {
+    transform: none;
+  }
+}
