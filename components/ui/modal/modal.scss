@@ -1,0 +1,33 @@
+.modal {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 50;
+  backdrop-filter: blur(6px);
+  align-items: center;
+  justify-content: center;
+
+  .wrapper {
+    border: 1px solid var(--clr-main);
+    border-radius: 4px;
+    padding: 1rem;
+    background-color: #000;
+    background-image: var(--bg-img);
+    display: flex;
+    max-width: 540px;
+
+    .inner {
+      border-radius: 4px;
+      pointer-events: all;
+    }
+
+    button {
+      margin: 20px auto;
+      font-size: 1rem;
+    }
+  }
+}

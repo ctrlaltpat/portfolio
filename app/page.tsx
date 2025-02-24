@@ -13,7 +13,16 @@ export default function Home() {
   return (
     <div className={""}>
       {/* <Polyline/> */}
+      
       <div className={""}>
+        {/* <Suspense fallback={<>Loading...</>}>
+        <video className={styles.bgvideo} autoPlay loop muted preload='none'>
+          <source
+            src='https://strapi.apps.ctrlaltpat.com/uploads/1000053636_4089bad12d.MP4'
+            type='video/mp4'
+          />
+        </video>
+      </Suspense> */}
         <div className={""}>
           {/* <Image
             className={styles.profile}

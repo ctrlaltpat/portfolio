@@ -9,6 +9,27 @@
   figure {
     padding: 6px;
     margin-bottom: 10px;
+    justify-self: center;
+    cursor: pointer;
+
+    &:hover {
+      color: red;
+    }
+  }
+}
+
+.tags {
+  display: flex;
+  span {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-right: 4px;
+    background: #191919;
+    color: rgb(72, 153, 219);
+    font-size: 0.6rem;
+    font-weight: bold;
+    text-transform: uppercase;
   }
 }
 
@@ -23,10 +44,9 @@
     width: 100%;
     max-width: 400px;
     margin: 20px;
-    padding: 8px 4px;
     justify-self: center;
     border-radius: 20px;
-    border: 5px solid var(--clr-main);
+    border: 4px solid var(--clr-main);
     box-shadow: 0 70px 40px -20px rgba(0, 0, 0, 0.2);
 
     transform: perspective(750px) translate3d(0px, 0px, -250px) rotateX(27deg)
@@ -37,6 +57,29 @@
       transform: translate3d(0px, 0px, -250px);
       cursor: pointer;
     }
+    .top {
+      display: flex;
+      border-radius: 16px 16px 0 0;
+      padding: 4px;
+      background-color: rgb(27, 27, 44);
+      span {
+        display: inline-block;
+        border-radius: 100%;
+        height: 20px;
+        width: 20px;
+        margin: 4px;
+      }
+      span:nth-child(1) {
+        background-color: #ab58df;
+      }
+      span:nth-child(2) {
+        background-color: #3cd6ee;
+      }
+      span:nth-child(3) {
+        background-color: var(--clr-main);
+      }
+    }
+
   }
 }
 
@@ -45,22 +88,27 @@
 }
 
 @include lg {
-  .media{
+  .media-items{
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @include md {
-  .media,
+  .media-items,
   .project-list {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @include sm {
-  .media,
+  .media-items,
   .project-list {
     grid-template-columns: repeat(1, 1fr);
+  }
+  .media-items {
+    figure {
+      max-width: 400px;
+    }
   }
   .project-list figure {
     transform: none;

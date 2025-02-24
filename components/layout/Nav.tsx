@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
-  HiOutlineUser,
   HiOutlineCode,
+  HiOutlineUser,
   HiOutlineNewspaper,
   HiOutlinePhotograph,
 } from "react-icons/hi";
