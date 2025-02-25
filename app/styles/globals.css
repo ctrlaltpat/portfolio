@@ -70,6 +70,15 @@ a:visited {
   color: inherit;
 }
 
+.catt {
+  /* width: 100vw;
+  height: 100svh; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 .disabled {
   opacity: 0.75;
   cursor: not-allowed !important;
@@ -124,6 +133,7 @@ code {
   cursor: pointer;
   overflow: hidden;
   border-radius: 10px;
+  border: 1.5px solid transparent;
   box-shadow: 0px 4px 0 6px #060606, -1px 6px 6px 6px #000000e6;
   top: 0;
   transition: all 150ms ease-in-out;
@@ -138,6 +148,7 @@ code {
 }
 .cap-btn:hover {
   text-decoration: none !important;
+  border-color: rgb(59, 87, 246);
 }
 .cap-btn:focus {
   box-shadow: 0px 2px 0 6px #060606b5, -1px 4px 6px 6px #000000e6;
@@ -147,7 +158,7 @@ code {
   filter: grayscale(100%) opacity(0.7);
 }
 .cap-btn.active {
-  border: 1.5px solid var(--clr-main);
+  border-color: var(--clr-main);
 }
 /* .light .cap-btn {
     background: #ffffff;
@@ -162,11 +173,14 @@ code {
   margin-right: 6px;
   border-radius: 6px;
   font-size: 0.6rem;
-  border: 0;
+  border: 0.5px solid transparent;
   box-shadow: 0px 2px 0 2px #060606, -1px 4px 4px 4px #000000e6;
 }
+.cap-btn.filter-btn:hover {
+  border-color: rgb(59, 87, 246);
+}
 .cap-btn.filter-btn.active {
-  border: 0.5px solid var(--clr-main);
+  border-color: var(--clr-main);
 }
 
 /* sig-end */

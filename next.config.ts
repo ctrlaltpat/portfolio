@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'avatars.githubusercontent.com',
       },
+      {
+        protocol: 'https',
+        hostname: `${URL.parse(process.env.NEXT_PUBLIC_API_URL as string)?.hostname}`,
+      },
     ],
   },
   sassOptions: {}

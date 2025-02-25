@@ -1,0 +1,77 @@
+import { CSSProperties } from "react";
+import {
+  SiAngular,
+  SiChakraui,
+  SiCss3,
+  SiCypress,
+  SiElixir,
+  SiGit,
+  SiGithub,
+  SiHtml5,
+  SiIterm2,
+  SiJavascript,
+  SiJest,
+  SiMysql,
+  SiNodedotjs,
+  SiPhp,
+  SiPostgresql,
+  SiPython,
+  SiReact,
+  SiRedux,
+  SiRuby,
+  SiRubyonrails,
+  SiSass,
+  SiScala,
+  SiSqlite,
+  SiTailwindcss,
+  SiTypescript,
+  SiUnity,
+  SiWordpress,
+} from "react-icons/si";
+
+const icons = [
+  SiAngular,
+  SiChakraui,
+  SiCss3,
+  SiCypress,
+  SiElixir,
+  SiGit,
+  SiGithub,
+  SiHtml5,
+  SiIterm2,
+  SiJavascript,
+  SiJest,
+  SiMysql,
+  SiNodedotjs,
+  SiPhp,
+  SiPostgresql,
+  SiPython,
+  SiReact,
+  SiRedux,
+  SiRuby,
+  SiRubyonrails,
+  SiSass,
+  SiScala,
+  SiSqlite,
+  SiTailwindcss,
+  SiTypescript,
+  SiUnity,
+  SiWordpress,
+];
+
+export function TechExp() {
+  return (
+    <div className="tech-exp">
+      <div
+        className="tech-exp-list"
+        style={{ "--tech-exp-icon-q": icons.length } as CSSProperties}
+      >
+        {icons.map((Icon, pos) => (
+          <div style={{ "--tech-exp-icon-p": pos } as CSSProperties}>
+            <Icon />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
