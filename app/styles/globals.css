@@ -1,7 +1,6 @@
 :root {
-  --clr-dark: 230 35% 7%;
-  --clr-light: 231 77% 90%;
-  --clr-white: 0 0% 100%;
+  --clr-dark: hsla(230, 35%, 7%, 0.7);
+  --clr-light: hsla(0, 0%, 100%, 0.7);
 
   --clr-main: #3b83f6;
   /* --clr-accent: ; */
@@ -34,6 +33,14 @@ picture {
 
 h2, h3, h4, h5, p {
   text-shadow: 2px 2px 2px #282828;
+  font-family: var(--main-font);
+}
+h3 {
+  font-weight: 400;
+}
+
+p {
+  margin: 0.5rem;
 }
 
 li,ul {
@@ -99,13 +106,9 @@ a:visited {
   box-shadow: 0 0 0 10px hsl(240, 4%, 30%), 0 0 0 15px hsl(240, 9%, 13%);
 }
 
-pre,
-code {
+pre {
   display: block;
-  background: #55556110;
-  line-height: 1.5;
-  border-radius: 0.2rem;
-  padding: 1rem;
+  padding: 10px;
   white-space: pre-wrap; /* css-3 */
   white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
   white-space: -pre-wrap; /* Opera 4-6 */
@@ -138,6 +141,7 @@ code {
   top: 0;
   transition: all 150ms ease-in-out;
   text-decoration: none;
+  font-family: var(--btn-font);
 }
 .ctrlaltpat .cap-btn {
   margin-right: 14px;

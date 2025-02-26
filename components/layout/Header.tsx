@@ -5,6 +5,7 @@ import { Nav } from "./Nav";
 function Header() {
   return (
     <header className={"ctrlaltpat"}>
+      <div className="container">
       <h1>
         <Link href="/" className="cap-btn">
           Ctrl
@@ -17,6 +18,7 @@ function Header() {
         </Link>
       </h1>
       <Nav/>
+      </div>
     </header>
   );
 }

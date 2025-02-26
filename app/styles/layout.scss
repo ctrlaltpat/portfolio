@@ -13,13 +13,16 @@ main {
 }
 
 header {
-  display: flex;
   position: sticky;
   top: 0;
-  margin: 5px auto;
-  padding-top: 5px;
-  justify-content: space-between;
+  padding: 10px 0;
   z-index: 49;
+  background-color: var(--clr-dark);
+  div {
+    padding-top: 5px;
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 nav {
@@ -83,11 +86,18 @@ nav {
   .container {
     padding-inline: 1em;
   }
+  main {
+    padding: 0;
+  }
 }
 
 @include xs {
   header {
-    justify-content: space-around;
+    position: relative;
+    background-color: transparent;
+    div {
+      justify-content: space-around;
+    }
   }
   nav {
     position: fixed;

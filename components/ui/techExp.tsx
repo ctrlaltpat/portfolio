@@ -1,4 +1,4 @@
-import { CSSProperties } from "react";
+import { CSSProperties, Suspense } from "react";
 import {
   SiAngular,
   SiChakraui,
@@ -66,11 +66,16 @@ export function TechExp() {
         className="tech-exp-list"
         style={{ "--tech-exp-icon-q": icons.length } as CSSProperties}
       >
-        {icons.map((Icon, pos) => (
-          <div style={{ "--tech-exp-icon-p": pos } as CSSProperties}>
-            <Icon />
-          </div>
-        ))}
+        <Suspense>
+          {icons.map((Icon, pos) => (
+            <div
+              key={pos}
+              style={{ "--tech-exp-icon-p": pos } as CSSProperties}
+            >
+              <Icon />
+            </div>
+          ))}
+        </Suspense>
       </div>
     </div>
   );
