@@ -121,6 +121,7 @@ h2 {
         line-height: 1;
         transition: 0.5s;
         > span {
+          align-self: flex-end;
           font-size: 0.8rem;
         }
         p {
@@ -163,6 +164,9 @@ h2 {
 }
 
 .blog-post {
+  padding: 20px 10px 10px;
+  border-radius: 8px;
+  background-color: var(--clr-dark);
   > article:first-of-type {
     img {
       display: inline-block;
@@ -171,18 +175,50 @@ h2 {
       max-height: 300px;
       border-radius: 16px;
     }
-    p {
+    h3 {
       span {
         text-transform: uppercase;
       }
     }
   }
   article {
+    pre {
+      padding: 20px;
+    }
     p {
+      text-align: left;
+      line-height: 2rem;
       img {
         margin: 0 auto;
       }
     }
+  }
+}
+
+.snippet {
+  font-size: 0.8rem;
+  pre {
+    margin: 0 !important;
+  }
+}
+
+.note {
+  background-color: #f5f5f5;
+  text-align: left;
+  padding: 4px;
+  h2,
+  h3,
+  h4,
+  h5,
+  p,
+  em,
+  li,
+  strong {
+    font-family: var(--hand-font);
+    font-weight: bold;
+    color: #555;
+    text-shadow: none;
+    margin: 0;
   }
 }
 
@@ -192,17 +228,21 @@ h2 {
   grid-template-columns: repeat(4, 1fr);
 
   figure {
+    position: relative;
     width: 100%;
     max-width: 300px;
+    max-height: 500px;
+    overflow: hidden;
     margin-bottom: 10px;
     justify-self: center;
     border: 2px solid var(--clr-main);
     border-radius: 18px;
+    background-image: var(--bg-img);
 
     .top {
       display: flex;
       background-color: rgb(27, 27, 44);
-      border-radius: 18px 18px 0 0;
+      border-radius: 16px 16px 0 0;
       padding: 4px;
       div {
         display: flex;
@@ -212,11 +252,12 @@ h2 {
         span {
           display: inline-block;
           border-radius: 100%;
-          height: 16px;
-          width: 16px;
-          margin: 2px;
+          height: 14px;
+          width: 14px;
+          margin: 4px 2px;
           color: transparent;
-          font-size: 0.6rem;
+          font-family: var(--robo-font);
+          font-size: 0.5rem;
           font-weight: bold;
           line-height: 1rem;
         }
@@ -230,8 +271,8 @@ h2 {
           background-color: var(--clr-main);
         }
         &:hover {
-          span {
-            color: rgba(27, 27, 44, 0.6);
+          span:nth-child(3) {
+            color: var(--clr-dark);
           }
         }
       }
@@ -239,16 +280,12 @@ h2 {
         font-weight: 400;
       }
     }
-
-    pre {
-      margin: 0!important;
-    }
     .tags {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
       background-color: rgb(27, 27, 44);
-    }
-
-    &:hover {
-      color: red;
+      border-radius: 0 0 16px 16px;
     }
   }
 }
@@ -256,7 +293,6 @@ h2 {
 .tags {
   display: flex;
   padding: 6px;
-  border-radius: 0 0 18px 18px;
   span {
     display: inline-block;
     padding: 2px 6px;
@@ -310,6 +346,17 @@ h2 {
       text-align: left;
     }
   }
+  h4 {
+    margin: 40px auto 20px;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--clr-main);
+  }
+  h5 {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    font-weight: 400;
+  }
   .bg-vid-fb {
     width: 45vw;
     background-color: #007bff;
@@ -324,13 +371,37 @@ h2 {
     opacity: 0.6;
     mask-image: linear-gradient(to right, transparent, #000 70%);
   }
+  .skills {
+    .skills-list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 4px;
+
+      article {
+        border-radius: 8px;
+        background-color: var(--clr-dark);
+        padding: 8px 4px;
+        margin: 4px 0;
+        text-align: left;
+        h5 {
+          text-align: center;
+        }
+        span {
+          display: inline-block;
+          padding: 4px 6px;
+          margin: 2px 4px;
+          border-radius: 4px;
+          font-size: 0.8rem;
+          &.cexp {
+            border: 1px solid var(--clr-main);
+          }
+        }
+      }
+    }
+  }
   .profile {
     margin: 40px;
-    h4 {
-      margin: 20px;
-      font-size: 1.8rem;
-      text-align: left;
-    }
+
     .work {
       border: 3px solid transparent;
       border-top-color: var(--clr-main);
@@ -338,7 +409,7 @@ h2 {
       margin: 0;
       padding: 40px;
       position: relative;
-      width: 60vw;
+      width: 60%;
 
       h5 {
         font-size: 1.1rem;
@@ -392,6 +463,63 @@ h2 {
   }
 }
 
+.contact {
+  form {
+    display: inline-block;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: var(--clr-dark);
+
+    div {
+      .field {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        label,
+        input,
+        textarea {
+          font-family: var(--main-font);
+        }
+        input,
+        textarea {
+          border: 2px solid var(--clr-main);
+          border-radius: 4px;
+          padding: 2px 6px;
+        }
+
+        label {
+          text-align: left;
+        }
+        p {
+          color: #e42929;
+          min-height: 24px;
+        }
+        textarea {
+          min-height: 200px;
+          resize: vertical;
+        }
+        input::placeholder,
+        textarea::placeholder {
+          font-size: 0.8rem;
+          font-weight: 500;
+        }
+      }
+
+      &.info {
+        display: flex;
+        justify-content: space-between;
+
+        .field:nth-child(2) {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}
+
 .debug {
   border: 2px solid red;
 }
@@ -399,9 +527,21 @@ h2 {
 @include lg {
   .media-items {
     grid-template-columns: repeat(3, 1fr);
+    figure {
+      max-width: 360px;
+    }
   }
-  .blog .posts {
-    grid-template-columns: repeat(2, 1fr);
+  .blog {
+    .posts {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  .about {
+    .skills {
+      .skills-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
   }
 }
 
@@ -409,6 +549,11 @@ h2 {
   .media-items,
   .project-list {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .media-items {
+    figure {
+      max-width: 430px;
+    }
   }
   .blog .posts {
     grid-template-columns: repeat(1, 1fr);
@@ -447,22 +592,66 @@ h2 {
     transform: none;
   }
   .about {
+    h4 {
+      margin: 20px auto;
+    }
     .intro {
       flex-direction: column;
       align-items: center;
       div {
+        h3,
+        p {
+          text-align: center;
+        }
         margin: 0 auto;
       }
     }
     .profile {
       margin: 20px;
-      h4 {
-        text-align: center;
-      }
       .work {
         width: 100%;
         padding: 20px;
       }
+    }
+  }
+}
+
+@include xs {
+  h2 {
+    font-size: 2.4rem;
+  }
+  h3 {
+    font-size: 1.2rem;
+  }
+  .about {
+    .skills {
+      .skills-list {
+        grid-template-columns: repeat(1, 1fr);
+        article {
+          text-align: center;
+        }
+      }
+    }
+  }
+  .contact {
+    form {
+      div {
+        &.info {
+          flex-direction: column;
+
+          .field:nth-child(2) {
+            margin-left: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include tiny {
+  .media-items {
+    figure {
+      max-width: 320px;
     }
   }
 }

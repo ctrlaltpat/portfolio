@@ -97,27 +97,33 @@ nav {
     background-color: transparent;
     div {
       justify-content: space-around;
-    }
-  }
-  nav {
-    position: fixed;
-    justify-content: space-around;
-    width: 240px;
-    bottom: 15px;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    a.cap-btn {
-      height: 30px;
-      text-align: center;
-      opacity: 0.8;
-
-      &:hover {
-        opacity: 1;
+      h1 {
+        a.cap-btn {
+          font-size: 1rem;
+        }
       }
-
-      span {
-        display: none;
+      nav {
+        position: fixed;
+        justify-content: space-around;
+        width: 240px;
+        bottom: 15px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        a.cap-btn {
+          height: 30px;
+          border-radius: 6px;
+          text-align: center;
+          opacity: 0.8;
+    
+          &:hover {
+            opacity: 1;
+          }
+    
+          span {
+            display: none;
+          }
+        }
       }
     }
   }

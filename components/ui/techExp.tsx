@@ -59,7 +59,7 @@ const icons = [
   SiWordpress,
 ];
 
-export function TechExp() {
+export default function TechExp() {
   return (
     <div className="tech-exp">
       <div

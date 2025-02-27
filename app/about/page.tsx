@@ -3,12 +3,13 @@
 import { Suspense } from "react";
 import Image from "next/image";
 import { experience, intro } from "@/lib/content";
-import { TechExp } from "@/components/ui/techExp";
+import Skills from "@/components/about/skills";
+import ContactForm from "@/components/about/contactForm";
 
 export default function About() {
   return (
     <div className="about">
-      <h2>{`< Patrick />`}</h2>
+      <h2>{`<Patrick />`}</h2>
       <section>
         <Suspense fallback={<div className="bg-vid-fb"></div>}>
           <video className="bg-video" autoPlay loop muted preload="none">
@@ -16,12 +17,13 @@ export default function About() {
               src="https://strapi.apps.ctrlaltpat.com/uploads/1000053636_4089bad12d.MP4"
               type="video/mp4"
             />
+            {/* TODO */}
           </video>
         </Suspense>
         <div className="intro">
           <Image
             src="https://avatars.githubusercontent.com/u/10384309?v=4"
-            alt="Next.js logo"
+            alt="CtrlAltPat"
             width={256}
             height={256}
             priority
@@ -35,9 +37,8 @@ export default function About() {
             ))}
           </div>
         </div>
-        <TechExp/>
-        <div className="skills">-------------skills-------------</div>
-        <div className={"profile"}>
+        <Skills />
+        <div className="profile">
           <h4>Experience</h4>
           {experience.map(({ title, company, tenure, description, work }) => (
             <div className="work" key={company.substring(0, 3)}>
@@ -53,7 +54,10 @@ export default function About() {
             </div>
           ))}
         </div>
-        <div className="contact">-------------contact-------------</div>
+        <div className="contact">
+          <h4>Contact</h4>
+          <ContactForm />
+        </div>
       </section>
     </div>
   );

@@ -1,4 +1,4 @@
-
+$ss-tiny: 480px;
 $ss-xs : 600px;
 $ss-sm : 768px;
 $ss-md : 992px;
@@ -6,6 +6,11 @@ $ss-lg : 1200px;
 $ss-xl : 1400px;
 
 
+@mixin tiny {
+  @media (max-width: $ss-tiny) {
+    @content;
+  }
+}
 @mixin xs {
   @media (max-width: $ss-xs) {
     @content;

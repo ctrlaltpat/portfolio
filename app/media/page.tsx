@@ -1,33 +1,90 @@
 "use client";
 
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { useState } from "react";
-import { TagFilter } from "@/components/ui/tag-filter";
-import { useTagFilter } from "@/hooks/useTagFilter";
 
-import { mediaItems } from "./data";
+import { TagFilter } from "@/components/ui/tagFilter";
 import { Modal } from "@/components/ui/modal/modal";
-import { MediaItem } from "./types";
+import { MediaItem } from "@/lib/types";
 import useElementSize from "@/hooks/useElementSize";
 import { BREAKPOINTS } from "@/utils/styles";
+import { fetchMediatItems } from "@/lib/strapi";
+import Snippet from "@/components/media/snippet";
+import Video from "@/components/media/video";
+import Img from "@/components/media/img";
+import Note from "@/components/media/note";
 
 export default function Media() {
-  const { filteredItems, tags, selectedTags, handleSelectTag } =
-    useTagFilter(mediaItems);
   const [ref, size] = useElementSize();
+  const [columns, setColumns] = useState<MediaItem[][]>([]);
+  const [mediaItems, setMediaItems] = useState<MediaItem[]>([]);
+  const [filteredItems, setFilteredItems] = useState<MediaItem[]>([]);
+  const [tags, setTags] = useState<string[]>([]);
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [selectedItem, setSelectedItem] = useState<MediaItem | null>(null);
 
-  const diff = 96;
+  const diff = 76;
 
-  const columns = useMemo(() => {
-    const cols = [[], [], [], []] as MediaItem[][];
-    if (size.width < BREAKPOINTS.lg - diff) cols.pop();
-    if (size.width < BREAKPOINTS.md - diff) cols.pop();
-    filteredItems.forEach((item, i) => {
-      cols[i % cols.length].push(item);
+  const handleSelectTag = (tag: string) => {
+    if (tag === "all") {
+      setSelectedTags([]);
+    } else {
+      setSelectedTags((prev) => {
+        if (prev.includes(tag)) {
+          return prev.filter((t) => t !== tag);
+        }
+        return [...prev, tag];
+      });
+    }
+  };
+
+  // TODO: udpate buttons to remove etc, refactor
+
+  useEffect(() => {
+    async function fetchMediaItems() {
+      const mediaItems = await fetchMediatItems();
+
+      setMediaItems(mediaItems.data);
+      setFilteredItems(mediaItems.data);
+      setTags(
+        Array.from(
+          new Set(
+            mediaItems.data
+              .map((item) => item.tags)
+              .flat()
+              .map((tag) => tag.title)
+          )
+        ).sort()
+      );
+    }
+
+    fetchMediaItems();
+  }, []);
+
+  useMemo(() => {
+    setColumns(() => {
+      const cols = [[], [], [], []] as MediaItem[][];
+      if (size.width < BREAKPOINTS.lg - diff) cols.pop();
+      if (size.width < BREAKPOINTS.md - diff) cols.pop();
+
+      filteredItems.forEach((item, i) => {
+        cols[i % cols.length].push(item);
+      });
+      return cols;
     });
-    return cols;
   }, [size, filteredItems]);
+
+  useMemo(() => {
+    setFilteredItems(
+      selectedTags.length === 0
+        ? mediaItems
+        : mediaItems?.filter(({ tags }) =>
+            selectedTags.some((tag) => tags.map((t) => t.title).includes(tag))
+          )
+    );
+  }, [selectedTags]);
+
+  if (!mediaItems) return <div>Loading...</div>; // TODO
 
   return (
     <div ref={ref} className="media">
@@ -46,16 +103,26 @@ export default function Media() {
           {columns.map((column, colIndex) => (
             <div key={colIndex}>
               {column.map((item) => (
-                <figure
-                  className="debug"
-                  key={item.id}
-                  onClick={() => setSelectedItem(item)}
-                >
-                  <h5>{item.id}</h5>
-                  <p>{item.description}</p>
+                <figure className="debug" key={item.documentId}>
+                  <div className="top">
+                    <div>
+                      <span>&#10005;</span>
+                      <span>—</span>
+                      <span onClick={() => setSelectedItem(item)}>
+                        &#10094;&#10095;
+                      </span>
+                    </div>
+                    <h5>{item.title}</h5>
+                  </div>
+                  {item.type === "snippet" && (
+                    <Snippet content={item.content!} />
+                  )}
+                  {item.type === "note" && <Note content={item.content!} />}
+                  {item.type === "image" && <Img item={item} />}
+                  {item.type === "video" && <Video item={item} />}
                   <div className="tags">
                     {item.tags.slice(0, 3).map((tag) => (
-                      <span key={tag}>{tag}</span>
+                      <span key={tag.id}>{tag.title}</span>
                     ))}
                   </div>
                 </figure>
@@ -65,7 +132,7 @@ export default function Media() {
         </div>
       </section>
       <Modal
-        content={selectedItem}
+        item={selectedItem as MediaItem}
         isOpen={!!selectedItem}
         onClose={() => setSelectedItem(null)}
       ></Modal>

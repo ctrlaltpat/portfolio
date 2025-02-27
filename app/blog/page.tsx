@@ -87,7 +87,7 @@ export default function Blog() {
               </Suspense>
               <figcaption>
                 <span>
-                  {post.category ? `${post.category.name} - ` : ""}
+                  {/* {post.category ? `${post.category.name} - ` : ""} */}
                   {formatTimeAgo(new Date(post.createdAt))}
                 </span>
                 <p className="description">{post.description}</p>

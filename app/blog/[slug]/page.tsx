@@ -10,10 +10,10 @@ import { dateFormatter } from "@/utils/intl";
 import { BlogPostContent } from "@/components/blog/blogPostContent";
 
 const BackButton = () => (
-  <Link href="/blog" className="cap-btn" style={{ marginTop: "20px" }}>
+  <Link href="/blog" className="cap-btn" style={{ margin: "20px" }}>
     Back
   </Link>
-);
+); // TODO
 
 export default function Post() {
   const { slug } = useParams();
@@ -45,9 +45,9 @@ export default function Post() {
           src={`${process.env.NEXT_PUBLIC_API_URL}${post.cover.url}`}
           alt={`post-${post.id}`}
         />
-        <p>
+        <h3>
           <span>{post.category ? `${post.category.name} - ` : ""}</span> {date}
-        </p>
+        </h3>
         <div className="tags" style={{ justifyContent: "center" }}>
           {post.tags.map((tag) => (
             <span key={tag.id}>{tag.title}</span>
