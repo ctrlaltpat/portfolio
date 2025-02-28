@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { strapiURL } from "./lib/strapi";
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -10,7 +11,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: `${URL.parse(process.env.NEXT_PUBLIC_API_URL as string)?.hostname}`,
+        hostname: `${URL.parse(strapiURL() as string)?.hostname}`,
       },
     ],
   },

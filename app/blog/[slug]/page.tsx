@@ -4,10 +4,11 @@ import { useEffect, useState } from "react";
 import { notFound, useParams } from "next/navigation";
 import Link from "next/link";
 
-import { fetchPostBySlug } from "@/lib/strapi";
+import { BlogPostContent } from "@/components/blog/blogPostContent";
+import Loader from "@/components/ui/loader";
+import { fetchPostBySlug, strapiURL } from "@/lib/strapi";
 import { BlogPost } from "@/lib/types";
 import { dateFormatter } from "@/utils/intl";
-import { BlogPostContent } from "@/components/blog/blogPostContent";
 
 const BackButton = () => (
   <Link href="/blog" className="cap-btn" style={{ margin: "20px" }}>
@@ -31,7 +32,7 @@ export default function Post() {
     fetchPost();
   }, []);
 
-  if (loading) return <div>Loading...</div>; // TODO
+  if (loading) return <Loader />; // TODO
   if (!post) return notFound();
 
   const date = dateFormatter.format(new Date(post.createdAt));
@@ -42,7 +43,7 @@ export default function Post() {
       <h2>{post.title}</h2>
       <article>
         <img
-          src={`${process.env.NEXT_PUBLIC_API_URL}${post.cover.url}`}
+          src={`${strapiURL()}${post.cover.url}`}
           alt={`post-${post.id}`}
         />
         <h3>

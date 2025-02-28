@@ -5,7 +5,8 @@ import Link from "next/link";
 // import Image from "next/image";
 
 import { TagFilter } from "@/components/ui/tagFilter";
-import { fetchAllPosts } from "@/lib/strapi";
+import Loader from "@/components/ui/loader";
+import { fetchAllPosts, strapiURL } from "@/lib/strapi";
 import { formatTimeAgo } from "@/utils/intl";
 import { BlogPost } from "@/lib/types";
 
@@ -59,7 +60,7 @@ export default function Blog() {
     );
   }, [selectedTags]);
 
-  if (!posts) return <div>Loading...</div>; // TODO
+  if (!posts) return <Loader/>; // TODO
 
   return (
     <div className="blog">
@@ -79,9 +80,9 @@ export default function Blog() {
             <figure key={post.slug}>
               <h4>{post.title}</h4>
               <Suspense fallback={<div className="blog-img-fb"></div>}>
-                {/* <Image src={`${process.env.NEXT_PUBLIC_API_URL}${post.cover.url}`} alt={post.cover.alternativeText || `post-${post.id}`} style={{objectFit: 'cover', fill: 'true'}}/> */}
+                {/* <Image src={`${strapiURL()}${post.cover.url}`} alt={post.cover.alternativeText || `post-${post.id}`} style={{objectFit: 'cover', fill: 'true'}}/> */}
                 <img
-                  src={`${process.env.NEXT_PUBLIC_API_URL}${post.cover.url}`}
+                  src={`${strapiURL()}${post.cover.url}`}
                   alt={`post-${post.id}`}
                 />
               </Suspense>

@@ -7,7 +7,8 @@
   backdrop-filter: blur(6px);
   align-items: center;
   justify-content: center;
-  // transition: all;
+  opacity: 0;
+  transition: all 500ms;
   
   &.open {
     position: fixed;
@@ -15,6 +16,7 @@
     right: 0;
     left: 0;
     top: 0;
+    opacity: 1;
     z-index: 50;
   }
 

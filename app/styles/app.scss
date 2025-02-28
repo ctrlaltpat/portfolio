@@ -110,9 +110,10 @@ h2 {
         display: flex;
         flex-direction: column;
         position: absolute;
-        bottom: -50%;
+        bottom: -210%;
         left: 0;
         width: 100%;
+        height: 240px;
         margin: 0;
         padding: 10px;
         background-color: rgba(0, 0, 0, 0.7);
@@ -135,13 +136,20 @@ h2 {
             font-size: 0.8rem;
           }
         }
-        a {
+        a.cap-btn {
           align-self: end;
+          position: absolute;
+          bottom: 24px;
           padding-bottom: 0.2rem;
           margin-bottom: 10px;
           border-radius: 6px;
           box-shadow: 0px 4px 0 2px #060606, -1px 4px 4px 4px #000000e6;
           font-size: 0.8rem;
+        }
+        .tags {
+          position: absolute;
+          bottom: 0;
+          width: 100%;
         }
       }
       &:hover {
@@ -198,6 +206,7 @@ h2 {
 .snippet {
   font-size: 0.8rem;
   pre {
+    padding: 0;
     margin: 0 !important;
   }
 }
@@ -307,13 +316,16 @@ h2 {
 }
 
 .project-list {
-  display: grid;
-  column-gap: 10px;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-direction: column;
+  // column-gap: 10px;
+  // grid-template-columns: repeat(4, 1fr);
 
-  figure {
+  .status {
+    display: flex;
+    figure {
     display: inline-block;
-    height: 400px;
+    // height: 400px;
     width: 100%;
     max-width: 400px;
     margin: 20px;
@@ -330,7 +342,9 @@ h2 {
       transform: translate3d(0px, 0px, -250px);
       cursor: pointer;
     }
+    }
   }
+
 }
 
 .about {

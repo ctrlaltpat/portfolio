@@ -1,5 +1,5 @@
 import qs from "qs";
-import { BlogPostsResponse, MediaItemsResponse } from "./types";
+import { BlogPostsResponse, MediaItemsResponse, ProjectsResponse } from "./types";
 
 interface StrapiData {
   id: number;
@@ -9,6 +9,8 @@ interface StrapiData {
 interface StrapiResponse {
   data: StrapiData | StrapiData[];
 }
+
+export const strapiURL = () => process.env.NEXT_PUBLIC_STRAPI_URL;
 
 export function spreadStrapiData(data: StrapiResponse): StrapiData | null {
   if (Array.isArray(data.data) && data.data.length > 0) {
@@ -28,7 +30,7 @@ export default async function fetchContentType(
   try {
     const queryParams = { ...params };
 
-    const url = new URL(`api/${contentType}`, process.env.NEXT_PUBLIC_API_URL);
+    const url = new URL(`api/${contentType}`, strapiURL());
 
     const response = await fetch(`${url.href}?${qs.stringify(queryParams)}`, {
       method: "GET",
@@ -73,9 +75,19 @@ export async function fetchPostBySlug(slug: string | string[] | undefined) {
   );
 }
 
-export async function fetchMediatItems(): Promise<MediaItemsResponse> {
+export async function fetchMediaItems(): Promise<MediaItemsResponse> {
   return await fetchContentType(
     "media-items",
+    {
+      populate: "*",
+    },
+    false
+  );
+}
+
+export async function fetchProjects(): Promise<ProjectsResponse> {
+  return await fetchContentType(
+    "projects",
     {
       populate: "*",
     },

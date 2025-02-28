@@ -5,14 +5,15 @@ import { useState } from "react";
 
 import { TagFilter } from "@/components/ui/tagFilter";
 import { Modal } from "@/components/ui/modal/modal";
-import { MediaItem } from "@/lib/types";
-import useElementSize from "@/hooks/useElementSize";
-import { BREAKPOINTS } from "@/utils/styles";
-import { fetchMediatItems } from "@/lib/strapi";
 import Snippet from "@/components/media/snippet";
 import Video from "@/components/media/video";
 import Img from "@/components/media/img";
 import Note from "@/components/media/note";
+import Loader from "@/components/ui/loader";
+import { MediaItem } from "@/lib/types";
+import useElementSize from "@/hooks/useElementSize";
+import { BREAKPOINTS } from "@/utils/styles";
+import { fetchMediaItems } from "@/lib/strapi";
 
 export default function Media() {
   const [ref, size] = useElementSize();
@@ -41,8 +42,8 @@ export default function Media() {
   // TODO: udpate buttons to remove etc, refactor
 
   useEffect(() => {
-    async function fetchMediaItems() {
-      const mediaItems = await fetchMediatItems();
+    async function fetchMedia() {
+      const mediaItems = await fetchMediaItems();
 
       setMediaItems(mediaItems.data);
       setFilteredItems(mediaItems.data);
@@ -58,7 +59,7 @@ export default function Media() {
       );
     }
 
-    fetchMediaItems();
+    fetchMedia();
   }, []);
 
   useMemo(() => {
@@ -84,7 +85,7 @@ export default function Media() {
     );
   }, [selectedTags]);
 
-  if (!mediaItems) return <div>Loading...</div>; // TODO
+  if (!mediaItems) return <Loader />; // TODO
 
   return (
     <div ref={ref} className="media">

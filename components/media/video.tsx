@@ -1,3 +1,4 @@
+import { strapiURL } from "@/lib/strapi";
 import { MediaItem } from "@/lib/types";
 import { Suspense } from "react";
 
@@ -11,7 +12,7 @@ export default function Video({ item }: VideoProps) {
       <Suspense>
         <video autoPlay loop muted preload="none" style={{ maxWidth: "100%" }}>
           <source
-            src={`${process.env.NEXT_PUBLIC_API_URL}${item.video?.url}`}
+            src={`${strapiURL()}${item.video?.url}`}
             type="video/mp4"
           />
         </video>

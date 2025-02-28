@@ -8,6 +8,7 @@ type StrapiItem = {
 
 export interface MediaData {
   url: string;
+  ext: string;
   alternativeText?: string;
   caption?: string;
 }
@@ -51,15 +52,14 @@ export interface MediaItemsResponse {
   data: MediaItem[];
 }
 
-// export interface Project {
-//   id: string;
-//   title: string;
-//   description: string;
-//   image: string;
-//   // status: "started" | "archived" | "done";
-//   tags: Tag[];
-//   links: {
-//     live?: string;
-//     github?: string;
-//   };
-// }
+export interface Project extends StrapiItem {
+  title: string;
+  demo: MediaData;
+  demoLink: string;
+  stage: string;
+  tags: Tag[];
+}
+
+export interface ProjectsResponse {
+  data: Project[];
+}

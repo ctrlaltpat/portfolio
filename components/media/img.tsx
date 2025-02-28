@@ -1,3 +1,4 @@
+import { strapiURL } from "@/lib/strapi";
 import { MediaItem } from "@/lib/types";
 
 export interface ImgProps {
@@ -8,7 +9,7 @@ export default function Img({ item }: ImgProps) {
   return (
     <article className="media-item-img">
       <img
-        src={`${process.env.NEXT_PUBLIC_API_URL}${item.image?.url}`}
+        src={`${strapiURL()}${item.image?.url}`}
         alt={item.image?.alternativeText}
       />
     </article>
