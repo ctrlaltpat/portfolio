@@ -4,7 +4,7 @@ import { Suspense } from "react";
 import Image from "next/image";
 import { experience, intro } from "@/lib/content";
 import Skills from "@/components/about/skills";
-import ContactForm from "@/components/about/contactForm";
+import ContactForm from "@/components/about/contact-form";
 
 export default async function About() {
   return (

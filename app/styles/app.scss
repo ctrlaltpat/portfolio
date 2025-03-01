@@ -184,6 +184,7 @@ h2 {
       border-radius: 16px;
     }
     h3 {
+      text-transform: capitalize;
       span {
         text-transform: uppercase;
       }
@@ -249,7 +250,7 @@ h2 {
       border: 2px solid var(--clr-main);
       border-radius: 18px;
       background-image: var(--bg-img);
-  
+
       .top {
         display: flex;
         background-color: rgb(27, 27, 44);
@@ -259,7 +260,7 @@ h2 {
           display: flex;
           margin-right: 20px;
           cursor: pointer;
-  
+
           span {
             display: inline-block;
             border-radius: 100%;
@@ -300,7 +301,6 @@ h2 {
       }
     }
   }
-
 }
 
 .tags {
@@ -557,8 +557,6 @@ h2 {
   .media-items {
     .media-col {
       max-width: 33%;
-      figure {
-      }
     }
   }
   .blog {
@@ -614,11 +612,9 @@ h2 {
   .media-items {
     flex-direction: column;
     align-items: center;
-      .media-col {
-        max-width: 80%;
-        figure {
-        }
-      }
+    .media-col {
+      max-width: 80%;
+    }
   }
   .project-list figure {
     transform: none;
@@ -680,7 +676,7 @@ h2 {
   }
 }
 
-@include tiny {  
+@include tiny {
   .media-items {
     .media-col {
       max-width: 90%;

@@ -1,5 +1,5 @@
 import qs from "qs";
-import { BlogPostsResponse, MediaItemsResponse, ProjectsResponse } from "./types";
+import { Article, ArticlesResponse, MediaItemsResponse, ProjectsResponse } from "./types";
 
 interface StrapiData {
   id: number;
@@ -51,7 +51,7 @@ export default async function fetchContentType(
   }
 }
 
-export async function fetchAllPosts(): Promise<BlogPostsResponse> {
+export async function fetchAllPosts(): Promise<ArticlesResponse> {
   return await fetchContentType(
     "articles",
     {
@@ -61,7 +61,7 @@ export async function fetchAllPosts(): Promise<BlogPostsResponse> {
   );
 }
 
-export async function fetchPostBySlug(slug: string | string[] | undefined) {
+export async function fetchPostBySlug(slug: string | string[] | undefined):Promise<Article> {
   if(!slug) throw new Error('No slug provided!');
   return await fetchContentType(
     "articles",

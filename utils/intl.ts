@@ -1,13 +1,15 @@
 // https://gist.github.com/w3cj/e9e39a1b1942c03a82ac9f252236341b - w3cj <3
 
-export const dateFormatter = new Intl.DateTimeFormat(navigator.language, {
+const formatOptions: Intl.DateTimeFormatOptions =  {
   weekday: "long",
   month: "short",
   day: "numeric",
   year: "numeric",
   //   hour: "numeric",
   //   minute: "2-digit",
-});
+}
+
+export const dateFormatter = new Intl.DateTimeFormat(navigator.language, formatOptions);
 
 export const numberFormatter = new Intl.NumberFormat(navigator.language, {
   notation: "compact",

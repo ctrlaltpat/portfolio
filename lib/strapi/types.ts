@@ -23,7 +23,7 @@ type content = [
 
 type MediaType = "note" | "snippet" | "image" | "video";
 
-export interface BlogPost extends StrapiItem {
+export interface Article extends StrapiItem {
   title: string;
   slug: string;
   blocks: content;
@@ -34,8 +34,8 @@ export interface BlogPost extends StrapiItem {
   tags: Tag[];
 }
 
-export interface BlogPostsResponse {
-  data: BlogPost[];
+export interface ArticlesResponse {
+  data: Article[];
 }
 
 export interface MediaItem extends StrapiItem {
