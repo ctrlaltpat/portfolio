@@ -1,5 +1,5 @@
 import { strapiURL } from "@/lib/strapi";
-import { MediaItem } from "@/lib/types";
+import { MediaItem } from "@/lib/strapi/types";
 import { Suspense } from "react";
 
 export interface VideoProps {

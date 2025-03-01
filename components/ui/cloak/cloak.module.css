@@ -1,0 +1,13 @@
+.open {
+  opacity: 1;
+  /* transform: scaleY(1); */
+  max-height: 800px;
+  transform-origin: top;
+  transition: all var(--duration) cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.cloaked {
+  opacity: 0;
+  /* transform: scaleY(0); */
+  max-height: 0;
+}

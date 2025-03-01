@@ -1,4 +1,4 @@
-"use client";
+"use server";
 
 import { Suspense } from "react";
 import Image from "next/image";
@@ -6,7 +6,7 @@ import { experience, intro } from "@/lib/content";
 import Skills from "@/components/about/skills";
 import ContactForm from "@/components/about/contactForm";
 
-export default function About() {
+export default async function About() {
   return (
     <div className="about">
       <h2>{`<Patrick />`}</h2>
@@ -17,7 +17,6 @@ export default function About() {
               src="https://strapi.apps.ctrlaltpat.com/uploads/1000053636_4089bad12d.MP4"
               type="video/mp4"
             />
-            {/* TODO */}
           </video>
         </Suspense>
         <div className="intro">
@@ -26,7 +25,6 @@ export default function About() {
             alt="CtrlAltPat"
             width={256}
             height={256}
-            priority
           />
           <div>
             <h3>Software Engineer • Skater • British-Bajan</h3>

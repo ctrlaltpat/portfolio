@@ -4,21 +4,18 @@ import Img from "@/components/media/img";
 import Video from "@/components/media/video";
 import { TagFilter } from "@/components/ui/tagFilter";
 import { fetchProjects } from "@/lib/strapi";
-import { Project } from "@/lib/types";
+import { Project } from "@/lib/strapi/types";
 import { useEffect, useState } from "react";
 
-// Group projects by primary tag
 const groupedProjects = (projects: Project[]) =>
   projects.reduce((acc, project) => {
-    let { stage } = project;
+    const { stage } = project;
     if (!acc[stage]) {
       acc[stage] = [];
     }
     acc[stage].push(project);
     return acc;
   }, {} as Record<string, typeof projects>);
-
-//archived, in progress, done
 
 export default function Projects() {
   const [projects, setProjects] = useState<Project[]>([]);

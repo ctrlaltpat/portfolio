@@ -10,7 +10,7 @@ import Video from "@/components/media/video";
 import Img from "@/components/media/img";
 import Note from "@/components/media/note";
 import Loader from "@/components/ui/loader";
-import { MediaItem } from "@/lib/types";
+import { MediaItem } from "@/lib/strapi/types";
 import useElementSize from "@/hooks/useElementSize";
 import { BREAKPOINTS } from "@/utils/styles";
 import { fetchMediaItems } from "@/lib/strapi";

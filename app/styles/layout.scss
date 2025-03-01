@@ -40,14 +40,13 @@ nav {
 }
 
 .footer {
-  grid-row-start: 4;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 24px;
 
   ul {
     display: flex;
+    padding: 0;
     gap: 10px;
     list-style: none;
 
@@ -58,7 +57,6 @@ nav {
         color: var(--clr-main);
         display: flex;
         align-items: center;
-        gap: 8px;
 
         svg {
           height: 32px;
@@ -115,11 +113,11 @@ nav {
           border-radius: 6px;
           text-align: center;
           opacity: 0.8;
-    
+
           &:hover {
             opacity: 1;
           }
-    
+
           span {
             display: none;
           }

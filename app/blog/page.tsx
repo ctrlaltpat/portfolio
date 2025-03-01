@@ -8,7 +8,7 @@ import { TagFilter } from "@/components/ui/tagFilter";
 import Loader from "@/components/ui/loader";
 import { fetchAllPosts, strapiURL } from "@/lib/strapi";
 import { formatTimeAgo } from "@/utils/intl";
-import { BlogPost } from "@/lib/types";
+import { BlogPost } from "@/lib/strapi/types";
 
 export default function Blog() {
   const [posts, setPosts] = useState<BlogPost[]>();

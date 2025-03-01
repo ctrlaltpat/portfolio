@@ -7,7 +7,7 @@ import Link from "next/link";
 import { BlogPostContent } from "@/components/blog/blogPostContent";
 import Loader from "@/components/ui/loader";
 import { fetchPostBySlug, strapiURL } from "@/lib/strapi";
-import { BlogPost } from "@/lib/types";
+import { BlogPost } from "@/lib/strapi/types";
 import { dateFormatter } from "@/utils/intl";
 
 const BackButton = () => (

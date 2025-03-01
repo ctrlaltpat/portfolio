@@ -324,27 +324,26 @@ h2 {
   .status {
     display: flex;
     figure {
-    display: inline-block;
-    // height: 400px;
-    width: 100%;
-    max-width: 400px;
-    margin: 20px;
-    justify-self: center;
-    border: 2px solid var(--clr-main);
-    border-radius: 20px;
-    box-shadow: 0 70px 40px -20px rgba(0, 0, 0, 0.2);
+      display: inline-block;
+      // height: 400px;
+      width: 100%;
+      max-width: 400px;
+      margin: 20px;
+      justify-self: center;
+      border: 2px solid var(--clr-main);
+      border-radius: 20px;
+      box-shadow: 0 70px 40px -20px rgba(0, 0, 0, 0.2);
 
-    transform: perspective(750px) translate3d(0px, 0px, -250px) rotateX(27deg)
-      scale(0.9, 0.9);
-    transition: 0.4s ease-in-out transform;
+      transform: perspective(750px) translate3d(0px, 0px, -250px) rotateX(27deg)
+        scale(0.9, 0.9);
+      transition: 0.4s ease-in-out transform;
 
-    &:hover {
-      transform: translate3d(0px, 0px, -250px);
-      cursor: pointer;
-    }
+      &:hover {
+        transform: translate3d(0px, 0px, -250px);
+        cursor: pointer;
+      }
     }
   }
-
 }
 
 .about {
@@ -371,10 +370,6 @@ h2 {
     font-size: 1rem;
     font-weight: 400;
   }
-  .bg-vid-fb {
-    width: 45vw;
-    background-color: #007bff;
-  }
   .bg-video,
   .bg-vid-fb {
     position: fixed;
@@ -384,6 +379,10 @@ h2 {
     z-index: -1;
     opacity: 0.6;
     mask-image: linear-gradient(to right, transparent, #000 70%);
+  }
+  .bg-vid-fb {
+    width: 45vw;
+    background-color: #007bff;
   }
   .skills {
     .skills-list {
@@ -481,7 +480,7 @@ h2 {
   form {
     display: inline-block;
     width: 100%;
-    max-width: 600px;
+    max-width: 800px;
     padding: 20px;
     border-radius: 8px;
     background-color: var(--clr-dark);
@@ -531,7 +530,19 @@ h2 {
         }
       }
     }
+    p {
+      color: #e42929;
+    }
   }
+}
+
+.loader {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  color: var(--clr-main);
+  font-family: var(--main-font);
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle fill="%233B83F6" stroke="%233B83F6" stroke-width="7" r="15" cx="40" cy="65"><animate attributeName="cy" calcMode="spline" dur="2" values="65;135;65;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="-.4"></animate></circle><circle fill="%233B83F6" stroke="%233B83F6" stroke-width="7" r="15" cx="100" cy="65"><animate attributeName="cy" calcMode="spline" dur="2" values="65;135;65;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="-.2"></animate></circle><circle fill="%233B83F6" stroke="%233B83F6" stroke-width="7" r="15" cx="160" cy="65"><animate attributeName="cy" calcMode="spline" dur="2" values="65;135;65;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="0"></animate></circle></svg>');
 }
 
 .debug {

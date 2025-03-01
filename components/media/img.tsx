@@ -1,5 +1,5 @@
 import { strapiURL } from "@/lib/strapi";
-import { MediaItem } from "@/lib/types";
+import { MediaItem } from "@/lib/strapi/types";
 
 export interface ImgProps {
   item: MediaItem;

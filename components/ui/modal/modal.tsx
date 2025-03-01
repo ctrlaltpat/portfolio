@@ -1,4 +1,4 @@
-import { MediaItem } from "@/lib/types";
+import { MediaItem } from "@/lib/strapi/types";
 import { useEffect } from "react";
 import "./modal.scss";
 import Snippet from "@/components/media/snippet";
