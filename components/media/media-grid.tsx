@@ -1,47 +1,29 @@
 "use client";
+
 import { use, useMemo, useState } from "react";
 
-import { TagFilter } from "@/components/ui/tagFilter";
-import { Modal } from "@/components/ui/modal/modal";
-import Snippet from "@/components/media/snippet";
-import Video from "@/components/media/video";
 import Img from "@/components/media/img";
 import Note from "@/components/media/note";
-import { MediaItem } from "@/lib/strapi/types";
+import Snippet from "@/components/media/snippet";
+import Video from "@/components/media/video";
+import { Modal } from "@/components/ui/modal/modal";
+import { TagFilter } from "@/components/ui/tagFilter";
+import { useTagFilter } from "@/hooks/useTagFilter";
 import useElementSize from "@/hooks/useElementSize";
 import { BREAKPOINTS } from "@/utils/styles";
+import { MediaItem } from "@/lib/strapi/types";
 
 export default function MediaGrid({ items }: { items: Promise<MediaItem[]> }) {
   const mediaItems = use(items);
-  const tags = Array.from(
-    new Set(
-      mediaItems
-        .map((item) => item.tags)
-        .flat()
-        .map((tag) => tag.title)
-    )
-  ).sort();
+  const { filteredItems, tags, selectedTags, handleSelectTag } =
+    useTagFilter<MediaItem[]>(mediaItems);
 
-  const [ref, size] = useElementSize();
-  const [columns, setColumns] = useState<MediaItem[][]>([]);
-  const [filteredItems, setFilteredItems] = useState<MediaItem[]>(mediaItems);
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
-  const [selectedItem, setSelectedItem] = useState<MediaItem | null>(null);
+  // TODO: add "pagination" with scroll (use server action)
 
   const diff = 56;
-
-  const handleSelectTag = (tag: string) => {
-    if (tag === "all") {
-      setSelectedTags([]);
-    } else {
-      setSelectedTags((prev) => {
-        if (prev.includes(tag)) {
-          return prev.filter((t) => t !== tag);
-        }
-        return [...prev, tag];
-      });
-    }
-  };
+  const [ref, size] = useElementSize();
+  const [columns, setColumns] = useState<MediaItem[][]>([]);
+  const [selectedItem, setSelectedItem] = useState<MediaItem | null>(null);
 
   useMemo(() => {
     setColumns(() => {
@@ -49,22 +31,12 @@ export default function MediaGrid({ items }: { items: Promise<MediaItem[]> }) {
       if (size.width < BREAKPOINTS.lg - diff) cols.pop();
       if (size.width < BREAKPOINTS.md - diff) cols.pop();
 
-      filteredItems.forEach((item, i) => {
+      (filteredItems as MediaItem[]).forEach((item, i) => {
         cols[i % cols.length].push(item);
       });
       return cols;
     });
   }, [size, filteredItems]);
-
-  useMemo(() => {
-    setFilteredItems(
-      selectedTags.length === 0
-        ? mediaItems
-        : mediaItems?.filter(({ tags }) =>
-            selectedTags.some((tag) => tags.map((t) => t.title).includes(tag))
-          )
-    );
-  }, [selectedTags]);
 
   return (
     <>
