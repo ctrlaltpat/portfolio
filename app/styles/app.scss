@@ -232,71 +232,75 @@ h2 {
 }
 
 .media-items {
-  display: grid;
-  column-gap: 10px;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  gap: 14px;
+  justify-content: center;
 
-  figure {
-    position: relative;
-    width: 100%;
-    max-width: 300px;
-    max-height: 500px;
-    overflow: hidden;
-    margin-bottom: 10px;
-    justify-self: center;
-    border: 2px solid var(--clr-main);
-    border-radius: 18px;
-    background-image: var(--bg-img);
+  .media-col {
+    max-width: 25%;
 
-    .top {
-      display: flex;
-      background-color: rgb(27, 27, 44);
-      border-radius: 16px 16px 0 0;
-      padding: 4px;
-      div {
+    figure {
+      position: relative;
+      width: 100%;
+      max-height: 500px;
+      overflow: hidden;
+      margin-bottom: 10px;
+      justify-self: center;
+      border: 2px solid var(--clr-main);
+      border-radius: 18px;
+      background-image: var(--bg-img);
+  
+      .top {
         display: flex;
-        margin-right: 20px;
-        cursor: pointer;
-
-        span {
-          display: inline-block;
-          border-radius: 100%;
-          height: 14px;
-          width: 14px;
-          margin: 4px 2px;
-          color: transparent;
-          font-family: var(--robo-font);
-          font-size: 0.5rem;
-          font-weight: bold;
-          line-height: 1rem;
-        }
-        span:nth-child(1) {
-          background-color: #ab58df;
-        }
-        span:nth-child(2) {
-          background-color: #3cd6ee;
-        }
-        span:nth-child(3) {
-          background-color: var(--clr-main);
-        }
-        &:hover {
+        background-color: rgb(27, 27, 44);
+        border-radius: 16px 16px 0 0;
+        padding: 4px;
+        div {
+          display: flex;
+          margin-right: 20px;
+          cursor: pointer;
+  
+          span {
+            display: inline-block;
+            border-radius: 100%;
+            height: 14px;
+            width: 14px;
+            margin: 4px 2px;
+            color: transparent;
+            font-family: var(--robo-font);
+            font-size: 0.5rem;
+            font-weight: bold;
+            line-height: 1rem;
+          }
+          span:nth-child(1) {
+            background-color: #ab58df;
+          }
+          span:nth-child(2) {
+            background-color: #3cd6ee;
+          }
           span:nth-child(3) {
-            color: var(--clr-dark);
+            background-color: var(--clr-main);
+          }
+          &:hover {
+            span:nth-child(3) {
+              color: var(--clr-dark);
+            }
           }
         }
+        h5 {
+          font-weight: 400;
+        }
       }
-      h5 {
-        font-weight: 400;
+      .tags {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background-color: rgb(27, 27, 44);
+        border-radius: 0 0 16px 16px;
       }
-    }
-    .tags {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      background-color: rgb(27, 27, 44);
-      border-radius: 0 0 16px 16px;
     }
   }
+
 }
 
 .tags {
@@ -551,9 +555,10 @@ h2 {
 
 @include lg {
   .media-items {
-    grid-template-columns: repeat(3, 1fr);
-    figure {
-      max-width: 360px;
+    .media-col {
+      max-width: 33%;
+      figure {
+      }
     }
   }
   .blog {
@@ -571,13 +576,12 @@ h2 {
 }
 
 @include md {
-  .media-items,
   .project-list {
     grid-template-columns: repeat(2, 1fr);
   }
   .media-items {
-    figure {
-      max-width: 430px;
+    .media-col {
+      max-width: 50%;
     }
   }
   .blog .posts {
@@ -604,14 +608,17 @@ h2 {
       }
     }
   }
-  .media-items,
   .project-list {
     grid-template-columns: repeat(1, 1fr);
   }
   .media-items {
-    figure {
-      justify-self: center;
-    }
+    flex-direction: column;
+    align-items: center;
+      .media-col {
+        max-width: 80%;
+        figure {
+        }
+      }
   }
   .project-list figure {
     transform: none;
@@ -673,10 +680,10 @@ h2 {
   }
 }
 
-@include tiny {
+@include tiny {  
   .media-items {
-    figure {
-      max-width: 320px;
+    .media-col {
+      max-width: 90%;
     }
   }
 }
