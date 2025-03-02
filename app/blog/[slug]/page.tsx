@@ -1,8 +1,8 @@
+import { Suspense } from "react";
 import { notFound } from "next/navigation";
-
-import { fetchPostBySlug } from "@/lib/strapi";
 import BlogPost from "@/components/blog/blog-post";
-
+import Loader from "@/components/ui/loader";
+import { fetchPostBySlug } from "@/lib/strapi";
 
 async function fetcher(slug: string) {
   const post = await fetchPostBySlug(slug);
@@ -11,10 +11,17 @@ async function fetcher(slug: string) {
   return post;
 }
 
-export default async function Post({params}: {params: Promise<{slug: string}>}) {
-  const {slug} = await params;
+export default async function Post({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
   const post = fetcher(slug);
 
-  return <BlogPost post={post}/>;
+  return (
+    <Suspense fallback={<Loader />}>
+      <BlogPost post={post} />;
+    </Suspense>
+  );
 }
-

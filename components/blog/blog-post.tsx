@@ -3,7 +3,7 @@
 import { use } from "react";
 import Link from "next/link";
 
-import { BlogPostContent } from "@/components/blog/blog-post-content";
+import BlogPostContent from "@/components/blog/blog-post-content";
 import { strapiURL } from "@/lib/strapi";
 import { Article } from "@/lib/strapi/types";
 import { ClientDate } from "../ui/date";

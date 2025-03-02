@@ -6,7 +6,7 @@ export interface BlogPostContentProps {
   content: string;
 }
 
-export function BlogPostContent({ content }: BlogPostContentProps) {
+export default function BlogPostContent({ content }: BlogPostContentProps) {
   return (
     <article>
       <Markdown
