@@ -24,6 +24,7 @@ export default function Snippet({ content }: SnippetProps) {
                 {codeString}
               </SyntaxHighlighter>
             ) : (
+              // TODO <span>copy(children)</span>
               <code className={className} {...props}>
                 {children}
               </code>

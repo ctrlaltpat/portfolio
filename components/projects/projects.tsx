@@ -19,8 +19,6 @@ export default function Projects({
     return acc;
   }, {} as Record<string, Project[]>);
 
-  console.log({ groupedProjects });
-
   return (
     <div className="projects">
       <h2>Projects</h2>

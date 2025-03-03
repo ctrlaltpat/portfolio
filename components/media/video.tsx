@@ -7,6 +7,7 @@ export interface VideoProps {
   item: MediaItem;
 }
 
+// TODO: update sizing
 export default function Video({ item }: VideoProps) {
   return (
     <article className="media-item-vid">

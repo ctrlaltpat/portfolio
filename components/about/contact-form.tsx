@@ -32,7 +32,6 @@ export default function ContactForm() {
 
   const onSubmit = async (formData: ContactFormData) => {
     const actionResponse = await sendMessage(formData);
-    console.log({ actionResponse });
     if (!actionResponse.success) {
       if (actionResponse.errors) {
         Object.entries(actionResponse.errors).forEach(([field, message]) =>
