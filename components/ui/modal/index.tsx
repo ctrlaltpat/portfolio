@@ -1,10 +1,10 @@
-import { MediaItem } from "@/lib/strapi/types";
 import { useEffect } from "react";
-import "./modal.scss";
-import Snippet from "@/components/media/snippet";
-import Note from "@/components/media/note";
 import Img from "@/components/media/img";
+import Note from "@/components/media/note";
+import Snippet from "@/components/media/snippet";
 import Video from "@/components/media/video";
+import { MediaItem } from "@/lib/strapi/types";
+import "./modal.scss";
 
 export interface ModalProps {
   isOpen: boolean;
@@ -12,7 +12,7 @@ export interface ModalProps {
   item: MediaItem;
 }
 
-export function Modal({ isOpen, onClose, item }: ModalProps) {
+export default function Modal({ isOpen, onClose, item }: ModalProps) {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape" && isOpen) {

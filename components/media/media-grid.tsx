@@ -1,13 +1,13 @@
 "use client";
 
-import { use, useMemo, useState } from "react";
+import { use, useLayoutEffect, useState } from "react";
 
 import Img from "@/components/media/img";
 import Note from "@/components/media/note";
 import Snippet from "@/components/media/snippet";
 import Video from "@/components/media/video";
-import { Modal } from "@/components/ui/modal/modal";
-import { TagFilter } from "@/components/ui/tagFilter";
+import Modal from "@/components/ui/modal";
+import TagFilter from "@/components/ui/tagFilter";
 import { useTagFilter } from "@/hooks/useTagFilter";
 import useElementSize from "@/hooks/useElementSize";
 import { BREAKPOINTS } from "@/utils/styles";
@@ -25,7 +25,7 @@ export default function MediaGrid({ items }: { items: Promise<MediaItem[]> }) {
   const [columns, setColumns] = useState<MediaItem[][]>([]);
   const [selectedItem, setSelectedItem] = useState<MediaItem | null>(null);
 
-  useMemo(() => {
+  useLayoutEffect(() => {
     setColumns(() => {
       const cols = [[], [], [], []] as MediaItem[][];
       if (size.width < BREAKPOINTS.lg - diff) cols.pop();

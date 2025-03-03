@@ -10,12 +10,16 @@ export interface VideoProps {
 export default function Video({ item }: VideoProps) {
   return (
     <article className="media-item-vid">
-      <Suspense fallback={<Loader/>}>
-        <video autoPlay loop muted preload="none" style={{ maxWidth: "100%" }}>
-          <source
-            src={`${strapiURL()}${item.video?.url}`}
-            type="video/mp4"
-          />
+      <Suspense fallback={<Loader />}>
+        <video
+          autoPlay
+          loop
+          muted
+          preload="none"
+          controls={false}
+          style={{ maxWidth: "100%" }}
+        >
+          <source src={`${strapiURL()}${item.video?.url}`} type="video/mp4" />
         </video>
       </Suspense>
     </article>

@@ -12,7 +12,14 @@ export default async function About() {
       <h2>{`<Patrick />`}</h2>
       <section>
         <Suspense fallback={<div className="bg-vid-fb"></div>}>
-          <video className="bg-video" autoPlay loop muted preload="none">
+          <video
+            className="bg-video"
+            autoPlay
+            loop
+            muted
+            preload="none"
+            controls={false}
+          >
             <source
               src="https://strapi.apps.ctrlaltpat.com/uploads/1000053636_4089bad12d.MP4"
               type="video/mp4"

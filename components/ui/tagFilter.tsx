@@ -13,12 +13,19 @@ const FilterButton = ({
   onClick: () => void;
   children: React.ReactNode;
 }) => (
-  <button onClick={onClick} className={`cap-btn filter-btn ${isSelected ? "active" : ""}`}>
+  <button
+    onClick={onClick}
+    className={`cap-btn filter-btn ${isSelected ? "active" : ""}`}
+  >
     {children}
   </button>
 );
 
-export function TagFilter({ tags, selectedTags, onTagSelect }: TagFilterProps) {
+export default function TagFilter({
+  tags,
+  selectedTags,
+  onTagSelect,
+}: TagFilterProps) {
   const isSelected = (tag: string) =>
     selectedTags.includes(tag) || (tag === "all" && selectedTags.length === 0);
 

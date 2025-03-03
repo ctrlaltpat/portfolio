@@ -4,7 +4,7 @@ import { Suspense, use } from "react";
 import Link from "next/link";
 // import Image from "next/image";
 
-import { TagFilter } from "@/components/ui/tagFilter";
+import TagFilter from "@/components/ui/tagFilter";
 import { strapiURL } from "@/lib/strapi";
 import { formatTimeAgo } from "@/utils/intl";
 import { Article } from "@/lib/strapi/types";
