@@ -26,7 +26,6 @@ export default function ProjectsSlider({ items }: { items: Project[] }) {
     setItemsPerScreen(defaultCount);
     if (size.width < BREAKPOINTS.md) setItemsPerScreen((prev) => prev - 1);
     if (size.width < BREAKPOINTS.xs) setItemsPerScreen((prev) => prev - 1);
-    console.log(size.width, itemsPerScreen);
   }, [size]);
 
   const ProgressBar: FC<{
@@ -42,12 +41,12 @@ export default function ProjectsSlider({ items }: { items: Project[] }) {
         left: scrollByAmt * idx,
         behavior: "smooth",
       });
-      console.log(
-        Math.floor(
-          (scrollWidth * progressBarItemCount * idx) /
-            (scrollWidth * progressBarItemCount)
-        )
-      ); // TODO: allow {overflow: scroll} on track and update position on scroll
+      //   console.log(
+      //     Math.floor(
+      //       (scrollWidth * progressBarItemCount * idx) /
+      //         (scrollWidth * progressBarItemCount)
+      //     )
+      //   ); // TODO: allow {overflow: scroll} on track and update position on scroll
       setProgressBarIndex(idx);
     }, []);
 

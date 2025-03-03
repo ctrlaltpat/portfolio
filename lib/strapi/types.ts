@@ -45,7 +45,7 @@ export interface MediaItem extends StrapiItem {
   content?: string;
   image?: MediaData;
   video?: MediaData;
-  source?: string; // url
+  source?: string;
 }
 
 export interface MediaItemsResponse {
@@ -57,6 +57,7 @@ export interface Project extends StrapiItem {
   cover: MediaData;
   demo: MediaData;
   demoLink: string;
+  repo: string;
   stage: string;
   tags: Tag[];
 }

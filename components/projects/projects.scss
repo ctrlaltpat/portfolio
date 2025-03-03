@@ -23,31 +23,47 @@
       aspect-ratio: 16 / 9;
 
       .card-wrapper {
-        height: 200px;
+        height: 260px;
 
         .project-card {
           position: relative;
           display: inline-block;
           top: 0;
-          height: 200px;
+          height: 260px;
           width: 100%;
           max-width: 460px;
           border: 2px solid var(--clr-main);
           border-radius: 12px;
           background-color: #000;
           background-image: var(--bg-img);
-          transition: 0.3s ease-in-out all;
+          transition: all 0.3s ease-in-out;
           overflow: hidden;
 
           .cover {
-            height: 200px;
+            height: 224px;
             background-size: cover;
+          }
+
+          .preview {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 224px;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 0.9s ease;
+
+            video {
+              object-fit: cover;
+              height: 100%;
+              width: 100%;
+            }
           }
 
           h5 {
             display: inline-block;
             position: absolute;
-            top: 160px;
+            top: 190px;
             left: 10%;
             margin: 0 auto;
             font-weight: 500;
@@ -55,19 +71,42 @@
             transition: all 0.3s ease;
           }
 
-          p {
-            margin: 0 0.5rem;
-            font-size: 0.8rem;
-            text-align: left;
+          .more {
+            position: relative;
+            height: 116px;
+
+            p {
+              margin: 0 0.5rem auto;
+              font-size: 0.8rem;
+              text-align: left;
+            }
+
+            .links {
+              position: absolute;
+              bottom: 0;
+              display: flex;
+              width: 100%;
+              margin: 0 auto;
+              padding: 0 10px;
+              justify-content: space-between;
+
+              .cap-btn {
+                font-size: 1rem;
+              }
+            }
           }
 
           &:hover {
             top: -30px;
-            height: 330px;
+            height: 390px;
             cursor: pointer;
 
+            .preview {
+              opacity: 1;
+            }
+
             h5 {
-              top: 170px;
+              top: 190px;
               left: 10px;
             }
           }
