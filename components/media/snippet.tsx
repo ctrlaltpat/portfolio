@@ -6,6 +6,7 @@ export interface SnippetProps {
   content: string;
 }
 
+// TODO fix scroll on mobile
 export default function Snippet({ content }: SnippetProps) {
   return (
     <article className="snippet">

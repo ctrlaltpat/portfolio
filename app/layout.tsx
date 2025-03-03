@@ -29,6 +29,8 @@ export const metadata: Metadata = {
   description: "Portfolio",
 };
 
+// TODO: more meta, try View Transitions API
+
 export default function RootLayout({
   children,
 }: Readonly<{

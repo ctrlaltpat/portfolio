@@ -1,3 +1,9 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is my Portfolio (always a WIP) bootstrapped using [Next.js](https://nextjs.org) 
+
+Built without Tailwind CSS or AI!
 
 View [here](https://ctrlaltpat.com).
+
+##### TODO: 
+* more
+* much more
