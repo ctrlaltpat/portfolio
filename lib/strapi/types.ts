@@ -54,6 +54,7 @@ export interface MediaItemsResponse {
 
 export interface Project extends StrapiItem {
   title: string;
+  cover: MediaData;
   demo: MediaData;
   demoLink: string;
   stage: string;

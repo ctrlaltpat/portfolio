@@ -5,6 +5,7 @@ export interface ImgProps {
   item: MediaItem;
 }
 
+// TODO: refactor for media page
 export default function Img({ item }: ImgProps) {
   return (
     <article className="media-item-img">
