@@ -21,7 +21,7 @@ export default async function Post({
 
   return (
     <Suspense fallback={<Loader />}>
-      <BlogPost post={post} />;
+      <BlogPost post={post} />
     </Suspense>
   );
 }
