@@ -4,6 +4,8 @@ import { fetchAllPosts } from "@/lib/strapi";
 import BlogPosts from "@/components/blog/blog-posts";
 import Loader from "@/components/ui/loader";
 
+export const dynamic = "force-dynamic";
+
 async function fetcher() {
   const { data } = await fetchAllPosts();
   if (data.length === 0) notFound();

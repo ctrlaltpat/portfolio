@@ -1,5 +1,5 @@
 import React from "react";
-import { socials } from "../../lib/content";
+import { socials } from "../../../lib/content";
 import { FaLinkedin, FaGithub, FaCodepen } from "react-icons/fa";
 
 const { github, linkedin, codepen } = socials;

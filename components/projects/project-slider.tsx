@@ -48,7 +48,7 @@ export default function ProjectsSlider({ items }: { items: Project[] }) {
       //     )
       //   ); // TODO: allow {overflow: scroll} on track and update position on scroll
       setProgressBarIndex(idx);
-    }, []);
+    }, [progressBarItemCount]);
 
     return (
       <div className="progress-bar">
@@ -95,7 +95,7 @@ export default function ProjectsSlider({ items }: { items: Project[] }) {
         default:
           break;
       }
-    }, []);
+    }, [progressBarItemCount]);
 
     return (
       <>

@@ -3,6 +3,7 @@ import { Article, ArticlesResponse, MediaItemsResponse, ProjectsResponse } from 
 
 interface StrapiData {
   id: number;
+  // eslint-disable-next-line  @typescript-eslint/no-explicit-any
   [key: string]: any;
 }
 
@@ -26,6 +27,7 @@ export default async function fetchContentType(
   contentType: string,
   params: Record<string, unknown> = {},
   spreadData?: boolean
+  // eslint-disable-next-line  @typescript-eslint/no-explicit-any
 ): Promise<any> {
   try {
     const queryParams = { ...params };

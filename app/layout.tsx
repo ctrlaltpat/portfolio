@@ -1,8 +1,7 @@
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
+import Header from "@/components/layout/ui/Header";
+import Footer from "@/components/layout/ui/Footer";
 import "./styles/globals.css";
-import "./styles/layout.scss";
-import "./styles/app.scss";
+import "./styles/main.scss";
 import { Metadata } from "next/types";
 import { Montserrat, Roboto, Handlee } from 'next/font/google';
 import { cx } from "@/utils/styles";

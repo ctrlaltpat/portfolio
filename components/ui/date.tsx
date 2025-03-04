@@ -8,7 +8,7 @@ export function ClientDate(timeStamp: string) {
 
   useLayoutEffect(() => {
     setDateTime(dateFormatter.format(new Date(timeStamp)));
-  }, []);
+  }, [timeStamp]);
 
   return dateTime;
 }

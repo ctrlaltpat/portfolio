@@ -4,6 +4,8 @@ import { fetchMediaItems } from "@/lib/strapi";
 import MediaGrid from "@/components/media/media-grid";
 import Loader from "@/components/ui/loader";
 
+export const dynamic = "force-dynamic";
+
 async function fetcher() {
   const { data } = await fetchMediaItems();
   if (data.length === 0) notFound();

@@ -4,6 +4,8 @@ import Projects from "@/components/projects/projects";
 import Loader from "@/components/ui/loader";
 import { fetchProjects } from "@/lib/strapi";
 
+export const dynamic = 'force-dynamic'
+
 async function fetcher() {
   const { data } = await fetchProjects();
   if (data.length === 0) notFound();

@@ -23,7 +23,7 @@ export default function Cloak({
         setIsVisible(false);
       }, delay);
     }
-  }, [visibility]);
+  }, [delay, visibility]);
 
   return (
     <div
