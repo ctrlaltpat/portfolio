@@ -1,0 +1,54 @@
+.modal {
+  position: absolute;
+  top: -10%;
+  display: flex;
+  flex-direction: column;
+  z-index: -1;
+  backdrop-filter: blur(6px);
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 500ms;
+  
+  &.open {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+    opacity: 1;
+    z-index: 50;
+  }
+
+  .wrapper {
+    border: 1px solid var(--clr-main);
+    border-radius: 8px;
+    padding: 1rem;
+    background-color: #000;
+    background-image: var(--bg-img);
+    display: flex;
+    max-width: 90vw;
+    max-height: 80svh;
+    overflow: scroll;
+    pointer-events: all;
+
+    .inner {
+      pointer-events: all;
+      h4, h5 {
+        font-weight: 400;
+      }
+
+      .content {
+        margin-top: 10px;
+        article, pre, img, video {
+          border-radius: 8px;
+        }
+      }
+    }
+
+    button {
+      margin: 20px auto;
+      font-size: 1rem;
+    }
+  }
+}

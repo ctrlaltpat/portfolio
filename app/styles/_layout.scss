@@ -1,0 +1,128 @@
+.container {
+  padding-inline: 24px;
+  margin-inline: auto;
+  max-width: 80rem;
+}
+
+main {
+  text-align: center;
+  padding: 1em;
+  margin: 0 auto;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  padding: 10px 0;
+  z-index: 49;
+  background-color: var(--clr-dark);
+  div {
+    padding-top: 5px;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+
+  a.cap-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 50px;
+    margin: 5px;
+    font-size: 1rem;
+  }
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  ul {
+    display: flex;
+    padding: 0;
+    gap: 10px;
+    list-style: none;
+
+    li {
+      transition: all 0.5s ease-in-out;
+
+      a {
+        color: var(--clr-main);
+        display: flex;
+        align-items: center;
+
+        svg {
+          height: 32px;
+          width: 32px;
+        }
+      }
+
+      &:hover {
+        transform: rotateY(360deg);
+        a {
+          color: rgb(59, 87, 246);
+        }
+      }
+    }
+  }
+}
+
+@include sm {
+  .container {
+    padding-inline: 16px;
+  }
+  main {
+    padding: 0;
+  }
+}
+
+@include xs {
+  header {
+    position: relative;
+    background-color: transparent;
+    div {
+      justify-content: space-around;
+      h1 {
+        a.cap-btn {
+          font-size: 1rem;
+        }
+      }
+      nav {
+        position: fixed;
+        justify-content: space-around;
+        width: 240px;
+        bottom: 15px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        a.cap-btn {
+          height: 30px;
+          border-radius: 6px;
+          text-align: center;
+          opacity: 0.8;
+
+          &:hover {
+            opacity: 1;
+          }
+
+          span {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  .footer {
+    margin-bottom: 50px;
+
+    ul li a svg {
+      height: 24px;
+      width: 24px;
+    }
+  }
+}
