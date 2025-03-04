@@ -5,7 +5,7 @@ import contactSchema from "@/utils/validation/contact";
 import { ContactFormData } from "@/lib/types";
 import { CreateEmailOptions, Resend } from "resend";
 
-const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const unknownErrorMessage = "Hmmm, something went wrong there. Please try again later.";
 

@@ -14,6 +14,7 @@ export default async function About() {
         <Suspense fallback={<div className="bg-vid-fb"></div>}>
           <video
             className="bg-video"
+            playsInline
             autoPlay
             loop
             muted

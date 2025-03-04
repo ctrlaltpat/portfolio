@@ -31,7 +31,7 @@
           top: 0;
           height: 260px;
           width: 100%;
-          max-width: 460px;
+          max-width: 340px;
           border: 2px solid var(--clr-main);
           border-radius: 12px;
           background-color: #000;
@@ -57,6 +57,7 @@
               object-fit: cover;
               height: 100%;
               width: 100%;
+              pointer-events: none;
             }
           }
 
@@ -71,28 +72,21 @@
             transition: all 0.3s ease;
           }
 
-          .more {
-            position: relative;
-            height: 116px;
+          p {
+            margin: 0 0.5rem auto;
+            font-size: 0.8rem;
+            text-align: left;
+          }
 
-            p {
-              margin: 0 0.5rem auto;
+          .links {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 10px;
+            padding: 0 10px;
+
+            .cap-btn {
               font-size: 0.8rem;
-              text-align: left;
-            }
-
-            .links {
-              position: absolute;
-              bottom: 0;
-              display: flex;
-              width: 100%;
-              margin: 0 auto;
-              padding: 0 10px;
-              justify-content: space-between;
-
-              .cap-btn {
-                font-size: 1rem;
-              }
             }
           }
 

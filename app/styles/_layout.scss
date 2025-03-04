@@ -1,5 +1,5 @@
 .container {
-  padding-inline: 2em;
+  padding-inline: 24px;
   margin-inline: auto;
   max-width: 80rem;
 }
@@ -74,7 +74,7 @@ nav {
 
 @include sm {
   .container {
-    padding-inline: 1em;
+    padding-inline: 16px;
   }
   main {
     padding: 0;

@@ -14,6 +14,7 @@ export default function Video({ item }: VideoProps) {
       <Suspense fallback={<Loader />}>
         <video
           autoPlay
+          playsInline
           loop
           muted
           preload="none"

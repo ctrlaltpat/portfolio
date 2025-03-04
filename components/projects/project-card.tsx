@@ -20,7 +20,14 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         {project.demo && (
           <div className="preview">
             <Suspense fallback={<Loader />}>
-              <video autoPlay loop muted preload="none" controls={false}>
+              <video
+                playsInline
+                autoPlay
+                loop
+                muted
+                preload="none"
+                controls={false}
+              >
                 <source
                   src={`${strapiURL()}${project.demo?.url}`}
                   type="video/mp4"
@@ -35,20 +42,18 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             <span key={tag.id}>{tag.title}</span>
           ))}
         </div>
-        <div className="more">
-          <p>{project.description}</p>
-          <div className="links">
-            {project.repo && (
-              <a href={project.repo} target="_blank" className="cap-btn">
-                REPO
-              </a>
-            )}
-            {project.demoLink && (
-              <a href={project.demoLink} target="_blank" className="cap-btn">
-                DEMO
-              </a>
-            )}
-          </div>
+        <p>{project.description}</p>
+        <div className="links">
+          {project.repo && (
+            <a href={project.repo} target="_blank" className="cap-btn">
+              REPO
+            </a>
+          )}
+          {project.demoLink && (
+            <a href={project.demoLink} target="_blank" className="cap-btn">
+              DEMO
+            </a>
+          )}
         </div>
       </figure>
     </>
