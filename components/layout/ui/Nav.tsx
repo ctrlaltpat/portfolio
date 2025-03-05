@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { TransitionLink } from "@/components/ui/transitionLink";
 import { usePathname } from "next/navigation";
 import {
   HiOutlineCode,
@@ -24,14 +24,14 @@ export function Nav() {
       {links.map(({ href, label, icon: Icon }) => {
         const isActive = pathname === href;
         return (
-          <Link
+          <TransitionLink
             key={href}
             href={href}
-            className={`cap-btn ${isActive ? "active" : ""}`}
+            {...{ className: `cap-btn ${isActive ? "active" : ""}` }}
           >
             <Icon />
             <span>{label}</span>
-          </Link>
+          </TransitionLink>
         );
       })}
     </nav>

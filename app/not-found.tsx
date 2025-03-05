@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { TransitionLink } from "@/components/ui/transitionLink";
 
 const images_404 = ["space_8e2cb00ee8", "404_401c346084", "404st_d5bba705d1"];
 
@@ -16,13 +16,10 @@ export default function NotFound() {
             alt="404"
           />
         </div>
-        <br />
-        <p>Hmmm... something went wrong. Sorry!</p>
-        <br />
-        <Link href="/" className="cap-btn">
-          {" "}
-          Esc{" "}
-        </Link>
+        <p style={{ margin: "20px" }}>Hmmm... something went wrong. Sorry!</p>
+        <TransitionLink href="/" {...{ className: "cap-btn" }}>
+          Esc
+        </TransitionLink>
       </div>
     </>
   );
