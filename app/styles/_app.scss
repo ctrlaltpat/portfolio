@@ -40,6 +40,7 @@ h2 {
         transition: all 0.5s ease-in-out;
         &:hover {
           transform: rotateY(360deg);
+          color: var(--clr-white);
         }
       }
     }
@@ -201,6 +202,9 @@ h2 {
       }
     }
   }
+  .cap-btn {
+    margin: 40px;
+  }
 }
 
 .snippet {
@@ -345,7 +349,7 @@ h2 {
   }
   h4 {
     margin: 40px auto 20px;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     font-weight: 400;
     color: var(--clr-main);
   }
@@ -415,6 +419,7 @@ h2 {
 
       p {
         margin: 0;
+        font-weight: 500;
       }
 
       ul {

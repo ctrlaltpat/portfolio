@@ -49,7 +49,7 @@ export default async function About() {
           {experience.map(({ title, company, tenure, description, work }) => (
             <div className="work" key={company.substring(0, 3)}>
               <h5>
-                {title} - {company} ({tenure})
+                <strong>{title}</strong> - {company} ({tenure})
               </h5>
               <p>{description}</p>
               <ul>

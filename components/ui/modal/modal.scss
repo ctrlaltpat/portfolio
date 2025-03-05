@@ -9,7 +9,7 @@
   justify-content: center;
   opacity: 0;
   transition: all 500ms;
-  
+
   &.open {
     position: fixed;
     bottom: 0;
@@ -34,21 +34,26 @@
 
     .inner {
       pointer-events: all;
-      h4, h5 {
+      max-width: 80vw;
+      h4,
+      h5 {
         font-weight: 400;
       }
 
       .content {
-        margin-top: 10px;
-        article, pre, img, video {
+        padding: 20px 0;
+        article,
+        pre,
+        img,
+        video {
           border-radius: 8px;
         }
       }
     }
+  }
 
-    button {
-      margin: 20px auto;
-      font-size: 1rem;
-    }
+  button {
+    margin: 20px auto;
+    font-size: 1rem;
   }
 }
