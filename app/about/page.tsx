@@ -35,7 +35,7 @@ export default async function About() {
             height={256}
           />
           <div>
-            <h3>Software Engineer • Skater • British-Bajan</h3>
+            <h3>Full Stack Developer • Skater • British-Bajan</h3>
             <p>London, UK</p>
             <br />
             {intro.map((p) => (

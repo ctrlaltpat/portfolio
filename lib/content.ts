@@ -1,5 +1,5 @@
 export const intro = [
-  "Hi!👋🏾 I'm Patrick, a passionate software engineer based in London with a deep love for creating beautiful and functional web experiences.",
+  "Hi!👋🏾 I'm Patrick, a passionate Full Stack Developer based in London with a deep love for creating beautiful and functional web experiences.",
   "My journey in tech started with an interest in creating a multiplayer game in Unity. Over time, I've honed my skills in web development, and worked on a range of projects, from simple landing pages to complex web applications.",
   "When I'm not coding, you can find me rollerskating through London's streets, gaming, or experimenting with new technologies. I'm always excited to collaborate on interesting projects and learn new things.",
   "This is my portfolio to showcase my projects and a little about my life.",
