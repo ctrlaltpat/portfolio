@@ -51,12 +51,12 @@ export default async function About() {
               <h5>
                 {title} - {company} ({tenure})
               </h5>
-              <p>{description}</p>
-              <ul>
+              <div>
+                <p>{description}</p>
                 {work.map((a, i) => (
-                  <li key={a.substring(0, 3) + i}>{a}</li>
+                  <div key={a.substring(0, 3) + i}>{a}</div>
                 ))}
-              </ul>
+              </div>
             </div>
           ))}
         </div>
