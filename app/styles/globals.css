@@ -58,7 +58,6 @@ ul {
 
 body {
   color: #ffffff;
-  /* background: var(--background); */
   background-color: #000000;
   background-image: var(--bg-img);
   font-family: "Ubuntu Mono", Arial, Helvetica, sans-serif;
@@ -67,6 +66,10 @@ body {
 
   line-height: 1.5;
   min-height: 100vh;
+
+  transition-property: opacity, transform;
+  transition-timing-function: ease-in-out;
+  transition-duration: 300ms;
 }
 
 img,
@@ -205,4 +208,9 @@ pre {
   .cap-btn {
     font-size: 1.2rem;
   }
+}
+
+.page-transition {
+  opacity: 0.1;
+  transform: translateY(-10px);
 }

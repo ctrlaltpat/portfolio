@@ -1,18 +1,18 @@
 "use client";
 
 import { use } from "react";
-import Link from "next/link";
 
 import BlogPostContent from "@/components/blog/blog-post-content";
 import { strapiURL } from "@/lib/strapi";
 import { Article } from "@/lib/strapi/types";
 import { ClientDate } from "../ui/date";
+import { TransitionLink } from "../ui/transitionLink";
 
 const BackButton = () => (
-  <Link href="/blog" className="cap-btn" style={{ margin: "20px" }}>
+  <TransitionLink href="/blog" {...{ className: "cap-btn" }}>
     Back
-  </Link>
-); // TODO
+  </TransitionLink>
+);
 
 export default function BlogPost({ post }: { post: Promise<Article> }) {
   const { blocks, category, cover, createdAt, id, tags, title } = use(post);

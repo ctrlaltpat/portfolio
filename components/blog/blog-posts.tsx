@@ -1,7 +1,6 @@
 "use client";
 
 import { Suspense, use } from "react";
-import Link from "next/link";
 // import Image from "next/image";
 
 import TagFilter from "@/components/ui/tagFilter";
@@ -9,6 +8,7 @@ import { strapiURL } from "@/lib/strapi";
 import { formatTimeAgo } from "@/utils/intl";
 import { Article } from "@/lib/strapi/types";
 import { useTagFilter } from "@/hooks/useTagFilter";
+import { TransitionLink } from "../ui/transitionLink";
 
 export default function Articles({
   blogPosts,
@@ -47,9 +47,12 @@ export default function Articles({
                 <p className="excerpt">
                   {post.blocks[0].body.slice(0, 140)}...
                 </p>
-                <Link className="cap-btn" href={`/blog/${post.slug}`}>
+                <TransitionLink
+                  href={`/blog/${post.slug}`}
+                  {...{ className: "cap-btn" }}
+                >
                   Read more
-                </Link>
+                </TransitionLink>
                 <div className="tags">
                   {post.tags.slice(0, 3).map((tag) => (
                     <span key={tag.id}>{tag.title}</span>

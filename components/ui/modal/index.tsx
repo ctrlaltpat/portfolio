@@ -40,12 +40,12 @@ export default function Modal({ isOpen, onClose, item }: ModalProps) {
                 {item.type === "image" && <Img item={item} />}
                 {item.type === "video" && <Video item={item} />}
               </div>
-              <button onClick={onClose} className="cap-btn">
-                Esc
-              </button>
             </div>
           )}
         </div>
+        <button onClick={onClose} className="cap-btn">
+          Esc
+        </button>
       </div>
     </div>
   );

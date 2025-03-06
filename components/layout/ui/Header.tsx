@@ -1,21 +1,23 @@
+"use client";
+
 import React from "react";
-import Link from "next/link";
 import { Nav } from "./Nav";
+import { TransitionLink } from "@/components/ui/transitionLink";
 
 function Header() {
   return (
     <header className={"ctrlaltpat"}>
       <div className="container">
         <h1>
-          <Link href="/" className="cap-btn">
+          <TransitionLink href="/" {...{ className: "cap-btn" }}>
             Ctrl
-          </Link>
-          <Link href="/" className="cap-btn">
+          </TransitionLink>
+          <TransitionLink href="/" {...{ className: "cap-btn" }}>
             Alt
-          </Link>
-          <Link href="/" className="cap-btn">
+          </TransitionLink>
+          <TransitionLink href="/" {...{ className: "cap-btn" }}>
             Pat
-          </Link>
+          </TransitionLink>
         </h1>
         <Nav />
       </div>

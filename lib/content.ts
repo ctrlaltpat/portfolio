@@ -9,7 +9,7 @@ export const experience = [
   {
     title: "Developer",
     company: "Sky",
-    tenure: "2022 - 2024",
+    tenure: "Oct 2022 - Nov 2024",
     description:
       "Maintained thousands of templates using Typescipt, MJML and CSS",
     work: [
@@ -21,7 +21,7 @@ export const experience = [
   {
     title: "Software Engineer",
     company: "Cisco",
-    tenure: "2019 - 2022",
+    tenure: "Feb 2019 - Sep 2022",
     description:
       "Developed and maintained multiple client projects using various technologies including React, Redux, TypeScript, and AngularJS.",
     work: [
@@ -33,7 +33,7 @@ export const experience = [
   {
     title: "Web Developer",
     company: "Absowebly",
-    tenure: "2017 - 2018",
+    tenure: "May 2017 - Sep 2018",
     description:
       "Built and maintained multiple accessible, responsive websites using PHP, HTML, CSS, and JavaScript.",
     work: [
