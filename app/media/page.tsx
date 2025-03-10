@@ -1,13 +1,14 @@
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
-import { fetchMediaItems } from "@/lib/strapi";
 import MediaGrid from "@/components/media/media-grid";
 import Loader from "@/components/ui/loader";
+import { fetchFromStrapi, strapiContent } from "@/lib/strapi";
+import { MediaItem } from "@/lib/strapi/types";
 
 export const dynamic = "force-dynamic";
 
 async function fetcher() {
-  const { data } = await fetchMediaItems();
+  const { data } = await fetchFromStrapi<MediaItem>(strapiContent.media);
   if (data.length === 0) notFound();
 
   return data;

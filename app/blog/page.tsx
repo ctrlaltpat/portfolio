@@ -1,13 +1,14 @@
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
-import { fetchAllPosts } from "@/lib/strapi";
 import BlogPosts from "@/components/blog/blog-posts";
 import Loader from "@/components/ui/loader";
+import { fetchFromStrapi, strapiContent } from "@/lib/strapi";
+import { Article } from "@/lib/strapi/types";
 
 export const dynamic = "force-dynamic";
 
 async function fetcher() {
-  const { data } = await fetchAllPosts();
+  const { data } = await fetchFromStrapi<Article>(strapiContent.blog);
   if (data.length === 0) notFound();
 
   return data;

@@ -2,13 +2,18 @@ import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import BlogPost from "@/components/blog/blog-post";
 import Loader from "@/components/ui/loader";
-import { fetchPostBySlug } from "@/lib/strapi";
+import { fetchFromStrapi, strapiContent } from "@/lib/strapi";
+import { Article } from "@/lib/strapi/types";
 
 async function fetcher(slug: string) {
-  const post = await fetchPostBySlug(slug);
-  if (!post) notFound();
+  const { data } = await fetchFromStrapi<Article>(strapiContent.blog, {
+    filters: {
+      slug,
+    },
+  });
+  if (!data) notFound();
 
-  return post;
+  return data[0];
 }
 
 export default async function Post({
