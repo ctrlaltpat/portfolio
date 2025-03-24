@@ -70,6 +70,7 @@ export const skills: Record<SkillCategory, Skill[]> = {
     { name: "React Native", commercialExp: false },
     { name: "AngularJS", commercialExp: true },
     { name: "Robohydra", commercialExp: true },
+    { name: "Vue.js", commercialExp: false },
   ],
   backend: [
     { name: "Ruby", commercialExp: false },
