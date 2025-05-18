@@ -15,15 +15,15 @@ const nextConfig: NextConfig = {
     ],
   },
   sassOptions: {},
-  async redirects() {
-    return [
-      {
-        source: "/",
-        destination: "/about",
-        permanent: false,
-      },
-    ];
-  },
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: "/",
+  //       destination: "/about",
+  //       permanent: false,
+  //     },
+  //   ];
+  // },
 };
 
 export default nextConfig;

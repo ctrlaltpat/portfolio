@@ -6,7 +6,13 @@ import { experience, intro } from "@/lib/content";
 import Skills from "@/components/about/skills";
 import ContactForm from "@/components/about/contact-form";
 
+// import peopleArr from '../../lib/sandbox/people.json';
+
+
 export default async function About() {
+  // const newObj = peopleArr.reduce((acc, curr) => { return {...acc, [curr._id]: curr}},{});
+  // console.log(newObj);
+  // console.log(Object.values(newObj))
   return (
     <div className="about">
       <h2>{`<Patrick />`}</h2>
