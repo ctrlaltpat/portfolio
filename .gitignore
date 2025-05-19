@@ -40,4 +40,4 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-lib/sandbox
+lib/sandbox/reduce.ts
