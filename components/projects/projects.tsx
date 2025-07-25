@@ -26,7 +26,7 @@ export default function Projects({
         A collection of my work in web development, creative coding, and
         software engineering.
       </h3>
-      <p>{`Along with the below personal projects, I have worked on a Topology Builder and orchestration system for demonstrating bespoke system packages at Cisco, implemented complicated user forms which connect to secure Snowflake data lakes, created several pixel-perfect UIs from in-house designs, added custom analytics and tracking using Google services, managed CI/CD pipelines, and improved accessibility for websites in the public sector.`}</p>
+      <p>{`Along with the below personal projects, I have worked on a Topology Builder and orchestration system for demonstrating bespoke system packages at Cisco, implemented complex user forms which connect to secure Snowflake data lakes, created several pixel-perfect UIs from in-house designs, added custom analytics and tracking using Google services, managed CI/CD pipelines, and improved accessibility for websites in the public sector.`}</p>
       <section>
         <div className="project-list">
           {Object.entries(groupedProjects)
