@@ -22,7 +22,8 @@ export default async function About() {
             controls={false}
           >
             <source
-              src="https://strapi.apps.ctrlaltpat.com/uploads/1000053636_4089bad12d.MP4"
+              // src="https://strapi.apps.ctrlaltpat.com/uploads/1000053636_4089bad12d.MP4"
+              src="https://strapi.apps.ctrlaltpat.com/uploads/RP_Replay_Final1726788595_8dd5986d1f.mov"
               type="video/mp4"
             />
           </video>
