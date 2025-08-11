@@ -1,5 +1,5 @@
-import Header from "@/components/layout/ui/Header";
-import Footer from "@/components/layout/ui/Footer";
+// import Header from "@/components/layout/ui/Header";
+// import Footer from "@/components/layout/ui/Footer";
 import "./styles/globals.css";
 import "./styles/main.scss";
 import { Metadata } from "next/types";
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 // TODO: more meta, try View Transitions API
 
 export default function RootLayout({
-  children,
+  // children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
@@ -41,9 +41,10 @@ export default function RootLayout({
       className={cx(montser.variable, robo.variable, hand.variable)}
     >
       <body>
-        <Header />
-        <main className="container">{children}</main>
-        <Footer />
+        {/* <Header /> */}
+        {/* <main className="container">{children}</main> */}
+         <main>🏳️</main>
+        {/* <Footer /> */}
       </body>
     </html>
   );
