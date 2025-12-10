@@ -6,12 +6,12 @@ import BlogPostContent from "@/components/blog/blog-post-content";
 import { strapiURL } from "@/lib/strapi";
 import { Article } from "@/lib/strapi/types";
 import { ClientDate } from "../ui/date";
-import { TransitionLink } from "../ui/transitionLink";
+import Link from "next/link";
 
 const BackButton = () => (
-  <TransitionLink href="/blog" {...{ className: "cap-btn" }}>
+  <Link href="/blog" {...{ className: "cap-btn" }}>
     Back
-  </TransitionLink>
+  </Link>
 );
 
 export default function BlogPost({ post }: { post: Promise<Article> }) {

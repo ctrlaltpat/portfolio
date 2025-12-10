@@ -8,7 +8,7 @@ import { strapiURL } from "@/lib/strapi";
 import { formatTimeAgo } from "@/utils/intl";
 import { Article } from "@/lib/strapi/types";
 import { useTagFilter } from "@/hooks/useTagFilter";
-import { TransitionLink } from "../ui/transitionLink";
+import Link from "next/link";
 
 export default function Articles({
   blogPosts,
@@ -47,12 +47,12 @@ export default function Articles({
                 <p className="excerpt">
                   {post.blocks[0].body.slice(0, 140)}...
                 </p>
-                <TransitionLink
+                <Link
                   href={`/blog/${post.slug}`}
                   {...{ className: "cap-btn" }}
                 >
                   Read more
-                </TransitionLink>
+                </Link>
                 <div className="tags">
                   {post.tags.slice(0, 3).map((tag) => (
                     <span key={tag.id}>{tag.title}</span>

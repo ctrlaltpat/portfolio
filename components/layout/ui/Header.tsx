@@ -2,22 +2,22 @@
 
 import React from "react";
 import { Nav } from "./Nav";
-import { TransitionLink } from "@/components/ui/transitionLink";
+import Link from "next/link";
 
 function Header() {
   return (
     <header className={"ctrlaltpat"}>
       <div className="container">
         <h1>
-          <TransitionLink href="/" {...{ className: "cap-btn" }}>
+          <Link href="/" {...{ className: "cap-btn" }}>
             Ctrl
-          </TransitionLink>
-          <TransitionLink href="/" {...{ className: "cap-btn" }}>
+          </Link>
+          <Link href="/" {...{ className: "cap-btn" }}>
             Alt
-          </TransitionLink>
-          <TransitionLink href="/" {...{ className: "cap-btn" }}>
+          </Link>
+          <Link href="/" {...{ className: "cap-btn" }}>
             Pat
-          </TransitionLink>
+          </Link>
         </h1>
         <Nav />
       </div>
