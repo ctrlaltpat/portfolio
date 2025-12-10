@@ -11,7 +11,7 @@ export default async function About() {
     <div className="about">
       <h2>{`<Patrick />`}</h2>
       <section>
-        <Suspense fallback={<div className="bg-vid-fb" style={{backgroundColor: '#007bff', opacity: 0.6}}></div>}>
+        <Suspense >
           <video
             className="bg-video"
             playsInline
@@ -20,7 +20,6 @@ export default async function About() {
             muted
             preload="auto"
             controls={false}
-            poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23007bff' opacity='0.6'/%3E%3C/svg%3E"
           >
             <source
               // src="https://strapi.apps.ctrlaltpat.com/uploads/1000053636_4089bad12d.MP4"
