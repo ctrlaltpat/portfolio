@@ -371,6 +371,20 @@ h2 {
     mask-image: linear-gradient(to right, transparent, #000 70%);
     pointer-events: none;
   }
+
+  .bg-video {
+    animation: fadeInVideo 1.5s ease-in-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeInVideo {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0.6;
+    }
+  }
   .bg-vid-fb {
     width: 45vw;
     background-color: #007bff;
