@@ -23,7 +23,8 @@ export default async function About() {
           >
             <source
               // src="https://strapi.apps.ctrlaltpat.com/uploads/1000053636_4089bad12d.MP4"
-              src="https://strapi.apps.ctrlaltpat.com/uploads/RP_Replay_Final1726788595_8dd5986d1f.mov"
+              // src="https://strapi.apps.ctrlaltpat.com/uploads/RP_Replay_Final1726788595_8dd5986d1f.mov"
+              src="https://strapi.apps.ctrlaltpat.com/uploads/Year_3_of_roller_skating_86243611ee.mov"
               type="video/mp4"
             />
           </video>
