@@ -1,3 +1,5 @@
+@use "breakpoints";
+
 $tech-exp-icon-w: 40px;
 $tech-exp-icon-h: 32px;
 $tech-exp-icon-t: 20s;
@@ -577,7 +579,7 @@ h2 {
   border: 2px solid red;
 }
 
-@include lg {
+@include breakpoints.lg {
   .media-items {
     .media-col {
       max-width: 33%;
@@ -597,7 +599,7 @@ h2 {
   }
 }
 
-@include md {
+@include breakpoints.md {
   .media-items {
     .media-col {
       max-width: 50%;
@@ -608,7 +610,7 @@ h2 {
   }
 }
 
-@include sm {
+@include breakpoints.sm {
   .tech-exp {
     height: 23px;
     &-list {
@@ -681,7 +683,7 @@ h2 {
   }
 }
 
-@include xs {
+@include breakpoints.xs {
   h2 {
     font-size: 2.4rem;
   }
@@ -713,7 +715,7 @@ h2 {
   }
 }
 
-@include tiny {
+@include breakpoints.tiny {
   .media-items {
     .media-col {
       max-width: 90%;
