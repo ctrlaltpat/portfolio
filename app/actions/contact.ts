@@ -45,7 +45,7 @@ export async function sendMessage(formData: ContactFormData) {
     if (error instanceof z.ZodError) {
       const errors = error.issues.reduce((acc, issue) => {
         const field = issue.path[0];
-        acc[field] = issue.message;
+        acc[String(field)] = issue.message;
         return acc;
       }, {} as Record<string, string>);
 

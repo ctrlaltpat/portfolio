@@ -33,45 +33,63 @@ export default function ContactForm() {
   const onSubmit = async (formData: ContactFormData) => {
     const actionResponse = await sendMessage(formData);
     if (!actionResponse.success) {
-      if (actionResponse.errors) {
-        Object.entries(actionResponse.errors).forEach(([field, message]) =>
-          setError(field as keyof ContactFormData, { type: "manual", message })
-        );
+      
+      const normalizedErrors: Record<string, string> | null = actionResponse.errors
+        ? Object.fromEntries(
+            Object.entries(actionResponse.errors)
+              .filter(([, value]) => typeof value === 'string')
+              .map(([key, value]) => [key, value as string])
+          )
+        : null;
+
+      if (normalizedErrors) {
+        Object.entries(normalizedErrors).forEach(([field, message]) => {
+          setError(field as keyof ContactFormData, { type: "manual", message });
+        });
       }
-      setResponse(actionResponse);
+
+      setResponse({
+        success: false,
+        message: actionResponse.message,
+        errors: normalizedErrors
+      });
       return;
     }
 
-    setResponse(actionResponse);
+    setResponse({
+      success: true,
+      message: actionResponse.message,
+      errors: null
+    });
     reset();
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      {response?.success === true && <h5>{response.message}</h5>}
+      {response?.success === true && <h5 aria-live="polite">{response.message}</h5>}
       <Cloak visibility={!isSubmitSuccessful && !response.success} delay={2000}>
         <h5>Feel free to send me a message &#128153;</h5>
         <div className="info">
           <div className="field">
             <label htmlFor="name">Name</label>
-            <input placeholder="Name" {...register("name")} />
+            <input placeholder="Name" {...register("name")} aria-invalid={errors.name ? "true" : "false"} />
             <p>{errors.name && errors.name.message}</p>
           </div>
           <div className="field">
             <label htmlFor="email">Email</label>
-            <input placeholder="Email" type="text" {...register("email")} />
+            <input placeholder="Email" type="email" {...register("email")} aria-invalid={errors.email ? "true" : "false"} />
             <p>{errors.email && errors.email.message}</p>
           </div>
         </div>
         <div className="content">
           <div className="field subject">
             <label htmlFor="subject">Subject</label>
-            <input placeholder="Subject" {...register("subject")} />
+            <input placeholder="Subject" {...register("subject")} aria-invalid={errors.subject ? "true" : "false"} />
             <p>{errors.subject && errors.subject.message}</p>
           </div>
           <div className="field message">
             <label htmlFor="message">Message</label>
-            <textarea placeholder="....." {...register("message")} />
+            <textarea placeholder="....." {...register("message")} aria-invalid={errors.message ? "true" : "false"} />
             <p>{errors.message && errors.message.message}</p>
           </div>
         </div>
@@ -82,11 +100,11 @@ export default function ContactForm() {
           disabled={isSubmitting}
           aria-disabled={isSubmitting}
         >
-          {isSubmitting ? "Checking..." : "Submit"}
+          {isSubmitting ? "Sending..." : "Submit"}
         </button>
       </Cloak>
       <p style={{ marginTop: "30px" }}>
-        {response?.success === false && response.message}
+        {response?.success === false && <span aria-live="assertive">{response.message}</span>}
       </p>
     </form>
   );
